@@ -17,13 +17,13 @@ While the maps I made were intended specifically for Worcester, you can do these
 
 In this tutorial you will learn to do the following operations with the geopandas library:
 
-Project: Switch the Coordinate Reference System (CRS) of a shapefile.
+**Project**: Switch the Coordinate Reference System (CRS) of a shapefile.
 
-Clip: Create a new shapefile by cutting out the input shapefile to fit within the Clip feature shapfile.
+**Clip**: Create a new shapefile by cutting out the input shapefile to fit within the Clip feature shapfile.
 
-Select by Attribute: Create a new shapefile by selecting certain criteria within a shapefile.
+**Select by Attribute**: Create a new shapefile by selecting certain criteria within a shapefile.
 
-Difference: Create a new shapefile by removing parts of the input shapefile that fall within another shapefile. This is the equivalent to the Erase Operation in ArcMap. 
+**Difference**: Create a new shapefile by removing parts of the input shapefile that fall within another shapefile. This is the equivalent to the Erase Operation in ArcMap. 
 
 If you wish to see these maps, please check them out at these links.
 
