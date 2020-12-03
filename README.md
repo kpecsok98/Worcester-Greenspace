@@ -22,3 +22,13 @@ If you wish to see these maps, please check them out at these links.
 
 # Objective 
 Having greenspace and treecover, particularly in urban communities, can provide many benefits that grey infrastructure can't provide such as inhibiting the impacts of the Urban Heat Island Effect, absorbing pollutants, and reducing the risk of flooding and erosion (Hebbert and Jankovi, 2011; Burger et al., 2017). In addition they can provide mental and physical health benefits to residents who in live in areas with these spaces (Wolch et al., 2014; Sallis and Ganz, 2009). 
+
+However studies show that spaces disproportionately lie within communities that are white and affluent (Boone at al., 2009; Wolch et al., 2014). Through this tutorial the objective is to see if it appears through visualization that this is the case in Worcester as well. In order to do this, the tutorial will lead the user to create layers that show the prescence of greenspace in non-Environmental Justice neighborhoods and Environmental Justice neighborhoods. Well what is an Environmental Justice neighborhood? An Environmental Justice neighborhood as directed by the Massachusetts Executive Office of Energy and and Environmental Afairs has to fulfill one of the following criteria at the Census Block Group (CBG) level:
+
+1. Have a minority population that is >= 25%.
+
+2. A 2010 median household income of less than $40,673.
+
+3. Have >= 25% of households that are English isolated, meaning they don't speak English as their first language.
+
+In addition to comparing greenspace distribution in Environmental Justice neigbhorhoods and non-Enviornmental Justice neighborhoods this tutorial will also show how to compare greenspace distribution in Environmental Justice neighborhoods that satisfy all three criteria, and Environmental Justice neighborhoods that satisfy only some criteria. Lastly, it is also important to note that these qualifications for Environmental Justice neighborhoods are only used for CBGs in Massachusetts.
