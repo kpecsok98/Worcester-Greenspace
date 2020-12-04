@@ -1,10 +1,22 @@
-# Greenspace in Worcester
+# Analyzing GreenSpace in Worcester
 This tutorial was created by Kyle Pecsok. If you have any question please feel free to email me at kpecsok@clarku.edu.
 
 ### Things needed for this tutorial
 - A Google Colab account, unless you have another coding software and know how to connect input data to the code, and place data created in the code to a new output folder.
 
 - A Carto account, however even if you don't have a Carto account you can still produce the necessary shapefiles you just won't be able to create the same maps that I did.
+
+### Some notes on Carto 
+
+If you have GitHub you can connect it to a Carto account, however if you have a free version of Carto please keep the following in mind.
+
+- You can only produce a maximum of three private and three public maps.
+
+- Each map can have only up to four layers.
+
+- You can only have a maximum of datasets in your account.
+
+With this tutorial we will not exceed these limitsm however if you made maps before on Carto and have teh free version then you may reach one of these limits beore being able to produce all of the maps.
 
 
 ## Introduction to the Tutorial
@@ -39,11 +51,11 @@ Having greenspace and treecover, particularly in urban communities, can provide 
 
 However studies show that spaces disproportionately lie within communities that are white and affluent (Boone at al., 2009; Wolch et al., 2014). Through this tutorial the objective is to see if it appears through visualization that this is the case in Worcester as well. In order to do this, the tutorial will lead the user to create layers that show the prescence of greenspace in non-Environmental Justice neighborhoods and Environmental Justice neighborhoods. Well what is an Environmental Justice neighborhood? An [Environmental Justice neighborhood](https://docs.digital.mass.gov/dataset/massgis-data-2010-us-census-environmental-justice-populations) as defined by the Massachusetts Executive Office of Energy and and Environmental Affairs has to fulfill one of the following criteria at the Census Block Group (CBG) level:
 
-1. Have a minority population that is >= 25%.
+1. Have a minority population that is >= 25% as of 2010.
 
 2. A 2010 median household income of less than $40,673.
 
-3. Have >= 25% of households that are English isolated, meaning there's no one in a household over 14 who speaks only English or doesn't speak English at home but overall speaks it very well.
+3. Have >= 25% of households that are English isolated, meaning there's no one in a household over 14 who speaks only English or doesn't speak English at home but overall speaks it very well as of 2010.
 
 In addition to comparing greenspace distribution in Environmental Justice neigbhorhoods and non-Enviornmental Justice neighborhoods this tutorial will also show how to compare greenspace distribution in Environmental Justice neighborhoods that satisfy all three criteria, and Environmental Justice neighborhoods that satisfy only some criteria. Lastly, it is also important to note that these qualifications for Environmental Justice neighborhoods are only used for CBGs in Massachusetts.
 
@@ -56,7 +68,7 @@ All the data needed is availabe in the data folder of this repo, but if you woul
 
 3. Greenspace (OPENSPACE_POLY.shp): The data is available at this [link](https://docs.digital.mass.gov/dataset/massgis-data-protected-and-recreational-openspace) and represents all conservation lands and outdoor recreational facilities. 
 
-4. Treecover (UTCWooManualEdits_20150907_AElmes.shp): While this data is not available for use, this data was produced by former Clark PhD student Arthur Elemes and represents the treecover in all of Worcester. 
+4. Treecover (UTCWooManualEdits_20150907_AElmes.shp): This shapefile is not available for use. This data was produced by former Clark PhD student Arthur Elemes and represents the treecover in all of Worcester. 
 
 
 ## Tutorial
