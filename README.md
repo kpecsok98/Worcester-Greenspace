@@ -204,7 +204,8 @@ If you you did then that is actually a good sign. Since we only selected one row
 Worcester.plot(column='TOWN', color='grey', figsize=(16,8));
 ```
 
-Does your ouput look like this? 
+Does your ouput look like this? ![Kyle's cool map](images/WorcesterPlot.PNG)
+
 
 If it does great! That polygon is of the city of Worcester. If your output doesn't look like that, go back and make sure that you did all of the prior steps correctly. For the rest of the tutorial I'm not going to do this again, however if you want to double check to see if your select by attribute, clip, or difference was performed correctly in the following steps, just follow the same format as above to see what the polygon of your new file looks like. When doing this just be sure that in ```column=``` you enter, you enter the name of a column that is actually in the data's attribute table. 
 
