@@ -1,4 +1,4 @@
-# Analyzing Green Space in Worcester
+# Visually Analyzing Green Space in Worcester by Environmental Justice Neigbhorhood Presence
 This tutorial was created by Kyle Pecsok. If you have any question please feel free to email me at kpecsok@clarku.edu.
 
 ### Things needed for this tutorial
