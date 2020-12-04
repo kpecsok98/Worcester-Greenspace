@@ -259,3 +259,80 @@ Worcester_EJ_some_treecover = gdp.clip(Worcester_treecover, Worcester_EJ_some)
 Worcester_treecover_NonEJ = gpd.overlay(Worcester_greenspace, Worcester_EJ, how = 'difference')
 '''
 ```
+
+Next we need to convert all the geodataframes that we created and want to use in our Carto map to shapefiles. Note that if you decide to use very fine/detailed data or data that is large like I did with treecover this process could take some time. For me with the treecover data it took about 30 minutes.
+
+
+```Python
+Worcester.to_file('Worcester.shp') # Shapefile of Worcester
+Worcester_EJ_some_greenspace.to_file('Worcester_EJ_some_greenspace.shp') # Shapefile of greenspace that lies within Worcester EJ CBGs that fulfill some criteria
+Worcester_greenspace_NonEJ.to_file('Worcester_greenspace_NonEJ.shp') # Shapefile of greenspace that doesn't lie within Worcester EJ CBGs
+Worcester_EJ_all.to_file('Worcester_EJ_all.shp') # Shapefile of Worcester EJ CBGs that fulfill all criteria
+Worcester_EJ_some.to_file('Worcester_EJ_some.shp') # Shapefile of Worcester EJ CBGs that fulfill some criteria
+Worcester_EJ_all_greenspace.to_file('Worcester_EJ_all_greenspace.shp') # Shapefile of greenspace that lies within Worcester EJ  CBGs that fulfill all criteria
+tree_cover.to_file('tree_cover.shp') # Shapefile of Worcester treecover
+```
+Now that we have a shapefile we should copy the shapefile components to an ouput folder. In the code the name of the output folder I'm putting a shapefile in is the name as the shapefile. The reason for this is because Carto will take zip files to upload rather than invidual .shp files so it will be easier to organize the data when you upload a Zip folder that has the same name as the shapefile.
+
+```Python
+# Copy components of shapefile to Google Drive
+!cp Worcester.cpg 'gdrive/My Drive/Worcester_EJ_GreenSpace/Worcester'
+!cp Worcester.dbf 'gdrive/My Drive/Worcester_EJ_GreenSpace/Worcester'
+!cp Worcester.prj 'gdrive/My Drive/Worcester_EJ_GreenSpace/Worcester'
+!cp Worcester.shp 'gdrive/My Drive/Worcester_EJ_GreenSpace/Worcester'
+!cp Worcester.shx 'gdrive/My Drive/Worcester_EJ_GreenSpace/Worcester'
+```
+
+```Python
+# Copy components of shapefile to Google Drive
+!cp Worcester_EJ_all.cpg 'gdrive/My Drive/Worcester_EJ_GreenSpace/Worcester_EJ_all'
+!cp Worcester_EJ_all.dbf 'gdrive/My Drive/Worcester_EJ_GreenSpace/Worcester_EJ_all'
+!cp Worcester_EJ_all.prj 'gdrive/My Drive/Worcester_EJ_GreenSpace/Worcester_EJ_all'
+!cp Worcester_EJ_all.shp 'gdrive/My Drive/Worcester_EJ_GreenSpace/Worcester_EJ_all'
+!cp Worcester_EJ_all.shx 'gdrive/My Drive/Worcester_EJ_GreenSpace/Worcester_EJ_all'
+```
+
+```Python
+# Copy components of shapefile to Google Drive
+!cp Worcester_EJ_all_greenspace.cpg 'gdrive/My Drive/Worcester_EJ_GreenSpace/Worcester_EJ_all_greenspace'
+!cp Worcester_EJ_all_greenspace.dbf 'gdrive/My Drive/Worcester_EJ_GreenSpace/Worcester_EJ_all_greenspace'
+!cp Worcester_EJ_all_greenspace.prj 'gdrive/My Drive/Worcester_EJ_GreenSpace/Worcester_EJ_all_greenspace'
+!cp Worcester_EJ_all_greenspace.shp 'gdrive/My Drive/Worcester_EJ_GreenSpace/Worcester_EJ_all_greenspace'
+!cp Worcester_EJ_all_greenspace.shx 'gdrive/My Drive/Worcester_EJ_GreenSpace/Worcester_EJ_all_greenspace'
+```
+
+```Python
+# Copy components of shapefile to Google Drive
+!cp Worcester_EJ_some_greenspace.cpg 'gdrive/My Drive/Worcester_EJ_GreenSpace/Worcester_EJ_some_greenspace'
+!cp Worcester_EJ_some_greenspace.dbf 'gdrive/My Drive/Worcester_EJ_GreenSpace/Worcester_EJ_some_greenspace'
+!cp Worcester_EJ_some_greenspace.prj 'gdrive/My Drive/Worcester_EJ_GreenSpace/Worcester_EJ_some_greenspace'
+!cp Worcester_EJ_some_greenspace.shp 'gdrive/My Drive/Worcester_EJ_GreenSpace/Worcester_EJ_some_greenspace'
+!cp Worcester_EJ_some_greenspace.shx 'gdrive/My Drive/Worcester_EJ_GreenSpace/Worcester_EJ_some_greenspace'
+```
+
+```Python
+# Copy components of shapefile to Google Drive
+!cp Worcester_EJ_some.cpg 'gdrive/My Drive/Worcester_EJ_GreenSpace/Worcester_EJ_some'
+!cp Worcester_EJ_some.dbf 'gdrive/My Drive/Worcester_EJ_GreenSpace/Worcester_EJ_some'
+!cp Worcester_EJ_some.prj 'gdrive/My Drive/Worcester_EJ_GreenSpace/Worcester_EJ_some'
+!cp Worcester_EJ_some.shp 'gdrive/My Drive/Worcester_EJ_GreenSpace/Worcester_EJ_some'
+!cp Worcester_EJ_some.shx 'gdrive/My Drive/Worcester_EJ_GreenSpace/Worcester_EJ_some'
+```
+
+```Python
+# Copy components of shapefile to Google Drive
+!cp Worcester_greenspace_NonEJ.cpg 'gdrive/My Drive/Worcester_EJ_GreenSpace/Worcester_greenspace_NonEJ'
+!cp Worcester_greenspace_NonEJ.dbf 'gdrive/My Drive/Worcester_EJ_GreenSpace/Worcester_greenspace_NonEJ'
+!cp Worcester_greenspace_NonEJ.prj 'gdrive/My Drive/Worcester_EJ_GreenSpace/Worcester_greenspace_NonEJ'
+!cp Worcester_greenspace_NonEJ.shp 'gdrive/My Drive/Worcester_EJ_GreenSpace/Worcester_greenspace_NonEJ'
+!cp Worcester_greenspace_NonEJ.shx 'gdrive/My Drive/Worcester_EJ_GreenSpace/Worcester_greenspace_NonEJ'
+```
+
+```Python
+# Copy components of shapefile to Google Drive
+!cp tree_cover.cpg 'gdrive/My Drive/Worcester_EJ_GreenSpace/tree_cover'
+!cp tree_cover.dbf 'gdrive/My Drive/Worcester_EJ_GreenSpace/tree_cover'
+!cp tree_cover.prj 'gdrive/My Drive/Worcester_EJ_GreenSpace/tree_cover'
+!cp tree_cover.shp 'gdrive/My Drive/Worcester_EJ_GreenSpace/tree_cover'
+!cp tree_cover.shx 'gdrive/My Drive/Worcester_EJ_GreenSpace/tree_cover'
+```
