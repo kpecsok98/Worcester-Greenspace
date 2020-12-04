@@ -208,3 +208,54 @@ Now we want to work towards creating a shapefile of Environmental Justice CBGs i
 # From Worcester Environmental Justiec Block Group file select by attribute to select Block Groups with all three criteria.
 Worcester_EJ_some = Worcester_EJ[Worcester_EJ['CRIT_CNT']<3] # Within CRIT_CNT column of attribute select block groups with a value less than 3.
 ```
+
+Next we want to create geodataframes that contain data of greenspace exclusively in Worcester. We can do this with a Clip. First let's clip ```greenspace``` within Worcester by typing the following code. 
+
+```Python
+#Clip greenspace within Worcester
+Worcester_greenspace = gpd.clip(greenspace, Worcester)
+```
+
+Now we have a geodataframe of greenspace within the Worcester city limits. In our final maps though we want to see where are the greensapces that fall within Worcester EJ CBGs that fulfill some or all criteria. Next let's create a geodataframe of greenspace that fall within Worcester EJ CBGs that fulfill all criteria.
+
+```Python
+#Clip the Worcester greenspace file within the Worcester Environmental Justice block groups with all criteria file
+Worcester_EJ_all_greenspace = gpd.clip(Worcester_greenspace, Worcester_EJ_all)
+```
+
+Now we'll create a geodataframe of greenspaces within Worcester EJ CBGs that only fulfill some criteria.
+
+```Python
+#Clip the Worcester greenspace file within the Worcester Environmental Justice block groups with some criteria file
+Worcester_EJ_some_greenspace = gpd.clip(Worcester_greenspace, Worcester_EJ_some)
+```
+
+Lastly, we want to create a geodatagrame that contains of Worcester greenspace that is not within an EJ CBG, regardless of how many criteria it has. To do this type the following code.
+
+```Python
+# Erase Worcester greenspace within areas that Worcester Environmental Justice block groups are in
+Worcester_greenspace_NonEJ = gpd.overlay(Worcester_greenspace, Worcester_EJ, how = 'difference')
+```
+
+We are now done with typing geodataframes. When I initally created this tutorial I was hopeful that I could clip the treecover data within the EJ CBGs with all and some criteria, but unfortunately by Google Colab crashed multiple times when trying to do so :(. So instead, I just ended up showing the projected tree_cover data in a Carto data, however the code below shows how I would have clipped the tree_cover data had it worked. 
+
+```Python
+#Code to clip treecover within the Worcester Environmental Justice block groups file
+'''
+Worcester_EJ_all_treecover = gdp.clip(Worcester_treecover, Worcester_EJ_all)
+'''
+```
+
+```Python
+#Code to clip Worcester treecover within the Worcester Environmental Justice block groups with some criteria file
+'''
+Worcester_EJ_some_treecover = gdp.clip(Worcester_treecover, Worcester_EJ_some)
+'''
+```
+
+```Python
+#Code to erase Worcester treecover data that are within the Environmeantl Justice block groups.
+'''
+Worcester_treecover_NonEJ = gpd.overlay(Worcester_greenspace, Worcester_EJ, how = 'difference')
+'''
+```
