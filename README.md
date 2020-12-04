@@ -14,7 +14,7 @@ If you have GitHub you can connect it to a Carto account, however if you have a 
 
 - Each map can have only up to four layers.
 
-- You can only have a maximum of datasets in your account.
+- You can only have a maximum of ten datasets in your account.
 
 With this tutorial we will not exceed these limitsm however if you made maps before on Carto and have teh free version then you may reach one of these limits beore being able to produce all of the maps.
 
