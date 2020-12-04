@@ -56,7 +56,17 @@ Please note that this tutorial is run on the assumption that the user is using G
 
 ### Part 1 (Importing Libraries and Downloading Data
 First download all the libraries that will be needed for this lab
+```Python
+!pip install geopandas
+!apt-get install -y libspatialindex-dev
+!pip install rtree
 
+import geopandas as gpd
+import pandas as pd
+import rtree # needed for doing the geometric operations with geopandas 
+from shapely.geometry import Point, Polygon, MultiPolygon  # for manipulating text data into geospatial shapes
+from shapely import wkt  # stands for "well known text," allows for interchange across GIS programs
+```
 
 
 Next you will want to organize the data I recommend creating a folder called Worcester_greenspace, or whatever name you would like to give the folder, and then create an input folder the initial folder created. You'll notice that my folder is called IDCE30274_FinalProject, but I recommend not doing this, unless you're doing this tutorial or your IDCE 30274 final project. If you're using Colab before inputting the data you need to write the following code to connect to your Drive.
