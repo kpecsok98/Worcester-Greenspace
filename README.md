@@ -54,7 +54,7 @@ In addition to comparing greenspace distribution in Environmental Justice neigbh
 ## Tutorial
 Please note that this tutorial is run on the assumption that the user is using Google Colab. So when connecting the input data and placing the output data, you will need to determine how to do this if you're not using Google Colab. If you're using Google Colab be sure to upload data to your Google Drive.
 
-### Part 1 (Importing Libraries and Downloading Data
+### Part 1 (Importing Libraries and Downloading Data)
 First download all the libraries that will be needed for this lab
 ```Python
 !pip install geopandas
@@ -69,13 +69,142 @@ from shapely import wkt  # stands for "well known text," allows for interchange 
 ```
 
 
-Next you will want to organize the data I recommend creating a folder called Worcester_greenspace, or whatever name you would like to give the folder, and then create an input folder the initial folder created. You'll notice that my folder is called IDCE30274_FinalProject, but I recommend not doing this, unless you're doing this tutorial or your IDCE 30274 final project. If you're using Colab before inputting the data you need to write the following code to connect to your Drive.
+Next you will want to organize the data. I recommend creating a folder called Worcester_EJ_Greenspace as I did, and then create an input folder within the Worcester_EJ_GreenSpace folder. If you're using Colab, before inputting the data you need to write the following code to connect Colab to your Drive.
+
+```Python
+from google.colab import drive
+drive.mount('/content/gdrive') # connects Colab to your Google Drive
+root_path = 'gdrive/My Drive/Worcester_EJ_GreenSpace/' # set root path to folder where you uploaded the data
+```
 
 
-Once Colab is connected to your Drive type in the following code. Again please note that if you are NOT using Colab you should NOT use this exact code to connect to your input data and even if you are using Colab if the folder you created is not named 'IDCE30274_Final' please replece that file name. 
+Once Colab is connected to your Drive type in the following code. Again please note that if you are NOT using Colab you should NOT use this exact code to connect to your input data. Also, for anyone, don't attempt to download the tree_cover data, I am only including it to show you how I used this specific data to include in a Carto map. If there is data that I did not provide that you would like to use feel free to import it.
+
+```Python
+# Import shapefiles
+environmentaljustice = gpd.read_file(root_path+'input/EJ_POLY.shp') # Shapefile of Massachusetts Environmental Justice CBGs
+greenspace = gpd.read_file(root_path+'input/OPENSPACE_POLY.shp') # Shapefile of Massachusetts open space areas 
+towns = gpd.read_file(root_path+'input/CENSUS2010TOWNS_POLY.shp') # Shapefile of Massachusetts towns
+tree_cover = gpd.read_file(root_path+'input/UTCWooManualEdits_20150907_AElmes.shp') # You will not import this shapefile for the tutorial
+```
+
+### Part 2 (Checking Shapefile Projection and Reprojecting Data)
+For data to be used in Cato they all need to have the WGS 1984 Coordinate Reference System (CRS). However, we don't know what the coordinate reference system of our data is just from simply downloading it. Luckily, there is a way to check the CRS. First let's check the CRS of ```environmentaljustice```. To do this type the following code.
+
+```Python
+# Check the Coordinate Reference System of environmentaljustice
+environmentaljustice.crs
+```
+
+You're output should look like the following ______ Clearly this is shapefile is not set to the WGS 1984 CRS. Let's check the other shapefiles.
+
+```Python
+# Check the Coordinate Reference System of greenspace
+greenspace.crs
+```
+
+```Python
+# Check the Coordinate Reference System of towns
+towns.crs
+```
+
+For this treecover data I'm only doing this because I have the data. If you decide to add any of your own data just type it out the same way to check its CRS.
+
+```Python
+# Check the Coordinate Reference System of tree_cover
+tree_cover.crs
+```
+
+You should see that none of the data has the CRS we need to upload to Carto. This means we will need to project it to the WGS 1984 CRS. First we will reproject the  ```environmentaljustice``` by typing the following code.
+
+```Python
+# Project environmentaljustice to the WGS 1984 CRS
+environmentaljustice = environmentaljustice.to_crs("EPSG:4326")
+```
+The EPSG code 4326 is the specific code for the WGS 1984 CRS. So in order to project the other data to this CRS, just do the same thing as above, except now replace ```environmentaljustice``` with ```greenspace``` and ```towns```.
+
+```Python
+# Project greenspace to the WGS 1984 CRS
+greenspace = greenspace.to_crs("EPSG:4326")
+```
+
+```Python
+# Project towns to the WGS 1984 CRS
+towns = towns.to_crs("EPSG:4326")
+```
+
+I also projected the tree_cover data. Again this is not data that you as the user of this tutorial use, but if you have any extra data feel free to project that if it needs to be.
+
+```Python
+# Project tree_cover to the WGS 1984 CRS
+tree_cover = tree_cover.to_crs("EPSG:4326")
+```
+
+Now let's check the CRS of one of the files we initially downloaded. Let's check the CRS of  ```environmentaljustice```.
+
+```Python
+# Check the new Coordinate Reference System of environmentaljustice
+environmentaljustice.crs
+```
+
+You should now get this output. Feel free to check the other shapefiles that your projected if you would like, they all should have that CRS now.
 
 
+### Part 3 (Create new shapefiles)
+
+Now that we have all our data in the correct CRS, let's start creating new shapefiles. First we are going to perform a select by attribute in our towns data, where we will select WORCESTER. In the code below I am selecting within the towns attribute file, an item in the TOWN column that are Worcester, which in other words means that of all the Massachusetts towns I'm only selecting Worcester for my new shapefile. While ```Worcester``` is not yet a shapefile, I will show later on in this section how to convert it to a shapefile. Keep in mind if you would like you can do another Massachusetts town, just be sure you type it in all caps like WORCESTER is below.
 
 
+```Python
+#From Massachusetts towns file select by attribute to get Worcester
+Worcester = towns[towns['TOWN']=="WORCESTER"] #Within TOWN column of attribute table select WORCESTER
+```
+To see and get familiar with this Worcester data type the following code.
 
+```Python
+# Check data of 1 row of Worcester 
+Worcester.sample(1)
+```
 
+You should get an output that looks like this. 
+
+Now let's do the same thing, but type it out as this.
+
+```Python
+# Check data of 2 rows of Worcester 
+Worcester.sample(2)
+```
+
+Did you get a message like this?
+
+If you you did then that is actually a good sign. Since we only selected one row when we did Select by Attribute, ```Worcester``` only has 1 row which means that we can't sample two rows of this data. So if we have an error by typing ```Worcester.sample(2)```, it's a good sign that you did the Select by Attribute correctly. Another way to check to see if you created  ```Worcester``` type out this code.
+
+```Python
+# Create a map of Worcester
+Worcester.plot(column='TOWN', color='grey', figsize=(16,8));
+```
+
+Does your ouput look like this? 
+
+If it does great! That polygon is of the city of Worcester. If your output doesn't look like that, go back and make sure that you did all of the prior steps correctly. For the rest of the tutorial I'm not going to do this again, however if you want to double check to see if your select by attribute, clip, or difference was performed correctly in the following steps, just follow the same format as above to see what the polygon of your new file looks like. When doing this just be sure that in ```column=``` you enter, you enter the name of a column that is actually in the data's attribute table. 
+
+Next we want to take the Environmental Justice CBG shapefile and do a Select by Attribute again. Just like with the towns data we will select items in the TOWNS column that is Worcester, which means we will select Environmental Justice CBGs that are in Worcester to create a new shapefile these types of CBGs that are solely within Worcester.
+
+```Python
+#From Environmental Justice Block group file select by attribute to get Worcester
+Worcester_EJ = environmentaljustice[environmentaljustice['TOWN']== "WORCESTER"] #Within TOWN column of attribute table select WORCESTER
+```
+
+Even though we have a variable now that contains Environmental Justice CBGs in Worcester, there's still more we need to do. We don't just want to compare greenspace in Enivronmental Justice CBGs and Non-Environmental CBGs, we also want to see how greenspace in Worcester compares in Environmental Justice CBGs that fulfill all three criteria, and Environmental Justice CBGs that fulfill some criteria. If you want to see what the criteria are, go back to the Objective section of this tutorial where I list off the three Environmental Justice criteria. So first let's work to create a shapefile that is of Environmental Justice CBGs that fulfill all three criteria, we will do this again through a Select by Attribute. In this code below we simply just select Environmental CBGs within Worcester that satisfy all three criteria, which means we only select those CBGs that have a ```CRIT_CNT``` (short for Criteria Count) that is equal to three.
+
+```Python
+#From Worcester Environmental Justiec Block Group file select by attribute to select Block Groups with all three criteria.
+Worcester_EJ_all = Worcester_EJ[Worcester_EJ['CRIT_CNT']==3] #Within CRIT_CNT column of attribute select block groups with a value of 3.
+```
+
+Now we want to work towards creating a shapefile of Environmental Justice CBGs in Worcester that only fulfill some criteria. To do thiis we will type pretty similar code as last time except we will want ```CRIT_CNT``` to be values of less than 3, in other words we are selecting by attribute for Environmental Justice CBGs that fulfill less than three criteria.
+
+```Python
+# From Worcester Environmental Justiec Block Group file select by attribute to select Block Groups with all three criteria.
+Worcester_EJ_some = Worcester_EJ[Worcester_EJ['CRIT_CNT']<3] # Within CRIT_CNT column of attribute select block groups with a value less than 3.
+```
