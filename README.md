@@ -19,11 +19,11 @@ In this tutorial you will learn to do the following operations with the geopanda
 
 **Project**: Switch the Coordinate Reference System (CRS) of a shapefile. To see where I figure out how to do this with geopandas, click on this [link](https://geopandas.org/projections.html).
 
-**Clip**: Create a new shapefile by cutting out the input shapefile to fit within the Clip feature shapefile. To see where I figured out how to do this with geopandas, click on this [link] (https://geopandas.org/reference/geopandas.clip.html).
+**Clip**: Create a new shapefile by cutting out the input shapefile to fit within the Clip feature shapefile. To see where I figured out how to do this with geopandas, click on this [link](https://geopandas.org/reference/geopandas.clip.html)
 
-**Select by Attribute**: Create a new shapefile by selecting certain criteria within a shapefile. To see where I figured out how to do this with geopandas, click on this [link] (https://gis.stackexchange.com/questions/303365/using-geopandas-shapely-and-fiona-to-select-state-from-shapefile-save-it-and).
+**Select by Attribute**: Create a new shapefile by selecting certain criteria within a shapefile. To see where I figured out how to do this with geopandas, click on this [link](https://gis.stackexchange.com/questions/303365/using-geopandas-shapely-and-fiona-to-select-state-from-shapefile-save-it-and).
 
-**Difference**: Create a new shapefile by removing parts of the input shapefile that fall within another shapefile. This is the equivalent to the Erase Operation in ArcMap. To see where I figured out how to do this with geopandas, click on this [link] (https://geopandas.org/set_operations.html).
+**Difference**: Create a new shapefile by removing parts of the input shapefile that fall within another shapefile. This is the equivalent to the Erase Operation in ArcMap. To see where I figured out how to do this with geopandas, click on this [link](https://geopandas.org/set_operations.html).
 
 If you wish to see these maps, please check them out at these links.
 
@@ -31,24 +31,26 @@ If you wish to see these maps, please check them out at these links.
 ### Objective 
 Having greenspace and treecover, particularly in urban communities, can provide many benefits that grey infrastructure can't provide such as inhibiting the impacts of the Urban Heat Island Effect, absorbing pollutants, and reducing the risk of flooding and erosion (Hebbert and Jankovi, 2011; Burger et al., 2017). In addition they can provide mental and physical health benefits to residents who in live in areas with these spaces (Wolch et al., 2014; Sallis and Ganz, 2009). 
 
-However studies show that spaces disproportionately lie within communities that are white and affluent (Boone at al., 2009; Wolch et al., 2014). Through this tutorial the objective is to see if it appears through visualization that this is the case in Worcester as well. In order to do this, the tutorial will lead the user to create layers that show the prescence of greenspace in non-Environmental Justice neighborhoods and Environmental Justice neighborhoods. Well what is an Environmental Justice neighborhood? An Environmental Justice neighborhood as directed by the Massachusetts Executive Office of Energy and and Environmental Afairs has to fulfill one of the following criteria at the Census Block Group (CBG) level:
+However studies show that spaces disproportionately lie within communities that are white and affluent (Boone at al., 2009; Wolch et al., 2014). Through this tutorial the objective is to see if it appears through visualization that this is the case in Worcester as well. In order to do this, the tutorial will lead the user to create layers that show the prescence of greenspace in non-Environmental Justice neighborhoods and Environmental Justice neighborhoods. Well what is an Environmental Justice neighborhood? An [Environmental Justice neighborhood](https://docs.digital.mass.gov/dataset/massgis-data-2010-us-census-environmental-justice-populations) as defined by the Massachusetts Executive Office of Energy and and Environmental Affairs has to fulfill one of the following criteria at the Census Block Group (CBG) level:
 
 1. Have a minority population that is >= 25%.
 
 2. A 2010 median household income of less than $40,673.
 
-3. Have >= 25% of households that are English isolated, meaning they don't speak English as their first language.
+3. Have >= 25% of households that are English isolated, meaning there's no one in a household over 14 who speaks only English or doesn't speak English at home but overall speaks it very well.
 
 In addition to comparing greenspace distribution in Environmental Justice neigbhorhoods and non-Enviornmental Justice neighborhoods this tutorial will also show how to compare greenspace distribution in Environmental Justice neighborhoods that satisfy all three criteria, and Environmental Justice neighborhoods that satisfy only some criteria. Lastly, it is also important to note that these qualifications for Environmental Justice neighborhoods are only used for CBGs in Massachusetts.
 
 ### Data Needed for this Lab
-1. Massachusetts Towns(): This data is available at this link and contains all the towns . Once the data is downloaded you should use the 
+All the data needed is availabe in the data folder of this repo, but if you would like to see where it came from the links are attached.
 
-2. Environmental Justice CBG: This data is available at this link and contains all the Environmental Justice CBGs within Massachusetts. 
+1. Massachusetts Towns(CENSUS2010TOWNS_POLY.shp): The data is available at this [link](https://docs.digital.mass.gov/dataset/massgis-data-datalayers-2010-us-census) and contains all the 351 towns of Massachusetts.
 
-3. Greenspace (): The data is available at this link and represents all conservation lands and outdoor recreational facilities. 
+2. Environmental Justice CBG (EJ_POLY.shp): The data is available at this [link](https://docs.digital.mass.gov/dataset/massgis-data-2010-us-census-environmental-justice-populations) and contains all the Environmental Justice CBGs within Massachusetts. 
 
-4. Treecover (): While this data is not available for use, this data was produced by former Clark Phd student Arthur Elemes and represents the treecover in all of Worcester. 
+3. Greenspace (OPENSPACE_POLY.shp): The data is available at this [link](https://docs.digital.mass.gov/dataset/massgis-data-protected-and-recreational-openspace) and represents all conservation lands and outdoor recreational facilities. 
+
+4. Treecover (UTCWooManualEdits_20150907_AElmes.shp): While this data is not available for use, this data was produced by former Clark PhD student Arthur Elemes and represents the treecover in all of Worcester. 
 
 
 ## Tutorial
