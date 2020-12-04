@@ -11,9 +11,14 @@ This tutorial was created by Kyle Pecsok. If you have any question please feel f
 For this tutorial you will learn how to use the geopandas library in Python to create a few different maps within Carto that shows the prescence of greenspace within Worcester, and how the prescence of greenspace varies in Worcester neighborhoods that are deemed Environmental Justice neighborhoods with all criteria, Environmental Justice neighborhoods with some criteria and neighborhoods that are not deemed Environmental Justice neighborhoods. Keep reading to learn what an Environmental Justice neighborhood with some or all criteria are. 
 
 Below are the following maps that will be created for this tutorial. If you wish to view these maps on Carto there is a link next to each image, which will send you to Carto to show an interactive version of that map. This is very helpful in allowing viewers to examine where in Worcester greenspace, Environmental Justice neighoborhoods are, and where Worcester greenspace is located within Environmental Justice neighborhoods. Using Carto is a great way to look interactively look at the locations of the shapefiles based on street and landmarks, for instance through this map I can zoom in and see which neighborhoods surrounding Clark Univeristy (my institution) considered Environmental Jusitce neighborhoods. You will notice that thought at in addition I have a map showing tree cover in Worcester. This was a map that I created using Worcester treecover data, however this data is not allowed for public use so I will not be sharing it, but if you are interested in seeing how I got the treecover data into this Carto Map, I will have a section explaining this. Perhaps if you want to add additional data to your map that I didn't include, it could potentially be helpful to review the treecover section.
-
+9
 While the maps I made were intended specifically for Worcester, you can do these maps for any town in Massachusetts with the data I provided. In the instructions of this tutorial I will explain how you can choose to do a different Massachusetts town. Here are the maps below:
-[Worcester GreenSpace Map](https://kpecsok98.carto.com/builder/c70eedb3-c9cf-47bf-8a6e-a16cd3b029b4/embed) ![Kyle's cool map](images/Greenspace_Map.PNG)
+
+**[Worcester GreenSpace Map]**(https://kpecsok98.carto.com/builder/c70eedb3-c9cf-47bf-8a6e-a16cd3b029b4/embed) ![Kyle's cool map](images/Greenspace_Map.PNG)
+
+**[Worcester Environmental Justce Neighborhood Map]**(https://kpecsok98.carto.com/builder/08cf7549-84d4-4e3b-8d22-1ce2592218f1/embed) ![Kyle's cool map](images/EJ_Map.PNG)
+
+**[Worcester Treecover Map]**(https://kpecsok98.carto.com/builder/42b670c2-c66d-46ab-8fec-18f9314589f8/embed) ![Kyle's cool map](images/Treecover_Map.PNG)
 
 
 In this tutorial you will learn to do the following operations with the geopandas library:
