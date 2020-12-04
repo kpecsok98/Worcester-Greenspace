@@ -104,7 +104,7 @@ For data to be used in Cato they all need to have the WGS 1984 Coordinate Refere
 environmentaljustice.crs
 ```
 
-You're output should look like the following ______ Clearly this is shapefile is not set to the WGS 1984 CRS. Let's check the other shapefiles.
+You're output should look like the following. ![Kyle's cool map](images/Initial_CRS.PNG) Clearly this is shapefile is not set to the WGS 1984 CRS. Let's check the other shapefiles.
 
 ```Python
 # Check the Coordinate Reference System of greenspace
@@ -148,7 +148,7 @@ I also projected the tree_cover data. Again this is not data that you as the use
 tree_cover = tree_cover.to_crs("EPSG:4326")
 ```
 
-Now let's check the CRS of one of the files we initially downloaded. Let's check the CRS of  ```environmentaljustice```.
+Now let's check the CRS of one of the files we initially downloaded. Let's check the CRS of  ```environmentaljustice```. ![Kyle's cool map](images/Final_CRS.PNG)
 
 ```Python
 # Check the new Coordinate Reference System of environmentaljustice
@@ -174,7 +174,7 @@ To see and get familiar with this Worcester data type the following code.
 Worcester.sample(1)
 ```
 
-You should get an output that looks like this. 
+You should get an output that looks like this. ![Kyle's cool map](images/WorcesterSample1.PNG)
 
 Now let's do the same thing, but type it out as this.
 
@@ -183,7 +183,7 @@ Now let's do the same thing, but type it out as this.
 Worcester.sample(2)
 ```
 
-Did you get a message like this?
+Did you get a message like this? ![Kyle's cool map](images/WorcesterSample2.PNG)
 
 If you you did then that is actually a good sign. Since we only selected one row when we did Select by Attribute, ```Worcester``` only has 1 row which means that we can't sample two rows of this data. So if we have an error by typing ```Worcester.sample(2)```, it's a good sign that you did the Select by Attribute correctly. Another way to check to see if you created  ```Worcester``` type out this code.
 
