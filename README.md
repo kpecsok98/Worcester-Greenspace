@@ -247,7 +247,7 @@ Worcester_EJ_all_greenspace = gpd.clip(Worcester_greenspace, Worcester_EJ_all)
 Now we'll create a geodataframe of greenspaces within Worcester EJ CBGs that only fulfill some criteria.
 
 ```Python
-#Clip the Worcester greenspace file within the Worcester Environmental Justice block groups with some criteria file
+# Clip the Worcester greenspace file within the Worcester Environmental Justice block groups with some criteria file
 Worcester_EJ_some_greenspace = gpd.clip(Worcester_greenspace, Worcester_EJ_some)
 ```
 
@@ -357,3 +357,19 @@ Now that we have a shapefile we should copy the shapefile components to an ouput
 !cp tree_cover.shp 'gdrive/My Drive/Worcester_EJ_GreenSpace/tree_cover'
 !cp tree_cover.shx 'gdrive/My Drive/Worcester_EJ_GreenSpace/tree_cover'
 ```
+
+### Part 4 (Uploading shapefiles to Carto)
+
+Once you copy the shapefile components to Google Drive, you should download each folder that you put outputs in. Once you download these Zip files you don't need to unzip as you can just upload them to Carto as a Zip file. The name of folder that you download from Google Drive then upload to Colab should have the same name as the shapefile components that are within the folder. If you are not doing this with Colab make sure that your output folder is Zipped before uploading it to Carto. 
+
+Once you log onto Carto go to your Dashboard and click on the blue button that says 'New Map', then click 'Create Empty Map'. Once you click that button you will have an empty map. The first map we will creater will show the locations of the Worcester Environmental Justice CBGs that fulfill all criteria, and the Environmental Justcie CBGs that fulfill only some of the criteria. First we want to download the Worcester.shp file. To do this click 'Add New Layer', and then upload the zip file called 'Worcester'. Note that this file may be named differently if you sued Colab,for me it was named ______, but regardless you should be able to tell which file it is. Once you upload this shapefile look at the images below to set a color, transparency, and border of the shapefile. 
+
+Next we will want to add the 'Worcester_EJ_some' and the 'Worcester_EJ_all' data to Carto, so like with the Worcester data click 'Add New Layer' and upload these two zip files. Again the name of them may be a little off but it should be recognizable which zip folder is needed to upload.
+
+Once these data are uploaded let's make the following edits to the Worcester_EJ_all data. Follow these images below to see what to do.
+
+
+
+Now let's do edits for the Worcester_EJ_some data. Again, follow these images below to see what to do.
+
+
