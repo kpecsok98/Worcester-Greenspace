@@ -17,13 +17,13 @@ While the maps I made were intended specifically for Worcester, you can do these
 
 In this tutorial you will learn to do the following operations with the geopandas library:
 
-**Project**: Switch the Coordinate Reference System (CRS) of a shapefile.
+**Project**: Switch the Coordinate Reference System (CRS) of a shapefile. To see where I figure out how to do this with geopandas, click on this [link](https://geopandas.org/projections.html).
 
-**Clip**: Create a new shapefile by cutting out the input shapefile to fit within the Clip feature shapfile.
+**Clip**: Create a new shapefile by cutting out the input shapefile to fit within the Clip feature shapefile. To see where I figured out how to do this with geopandas, click on this [link] (https://geopandas.org/reference/geopandas.clip.html).
 
-**Select by Attribute**: Create a new shapefile by selecting certain criteria within a shapefile.
+**Select by Attribute**: Create a new shapefile by selecting certain criteria within a shapefile. To see where I figured out how to do this with geopandas, click on this [link] (https://gis.stackexchange.com/questions/303365/using-geopandas-shapely-and-fiona-to-select-state-from-shapefile-save-it-and).
 
-**Difference**: Create a new shapefile by removing parts of the input shapefile that fall within another shapefile. This is the equivalent to the Erase Operation in ArcMap. 
+**Difference**: Create a new shapefile by removing parts of the input shapefile that fall within another shapefile. This is the equivalent to the Erase Operation in ArcMap. To see where I figured out how to do this with geopandas, click on this [link] (https://geopandas.org/set_operations.html).
 
 If you wish to see these maps, please check them out at these links.
 
@@ -69,7 +69,7 @@ from shapely import wkt  # stands for "well known text," allows for interchange 
 ```
 
 
-Next you will want to organize the data. I recommend creating a folder called Worcester_EJ_Greenspace as I did, and then create an input folder within the Worcester_EJ_GreenSpace folder. If you're using Colab, before inputting the data you need to write the following code to connect Colab to your Drive.
+Next you will want to organize the data. I recommend creating a folder called Worcester_EJ_Greenspace as I did, and then create an input folder within the Worcester_EJ_GreenSpace folder. In addition, create the following folders within the Worcester_EJ_GreenSpace folder, 'Worcester', 'Worcester_EJ_all', 'Worcester_EJ_some', 'Worcester_EJ_all_greenspace', 'Worcester_EJ_some_greenspace', and 'Worcester_greenspace_NonEJ'. I will explain in Part 3 why you need all of these folders. If you're using Colab, before inputting the data you need to write the following code to connect Colab to your Drive.
 
 ```Python
 from google.colab import drive
@@ -272,7 +272,7 @@ Worcester_EJ_some.to_file('Worcester_EJ_some.shp') # Shapefile of Worcester EJ C
 Worcester_EJ_all_greenspace.to_file('Worcester_EJ_all_greenspace.shp') # Shapefile of greenspace that lies within Worcester EJ  CBGs that fulfill all criteria
 tree_cover.to_file('tree_cover.shp') # Shapefile of Worcester treecover
 ```
-Now that we have a shapefile we should copy the shapefile components to an ouput folder. In the code the name of the output folder I'm putting a shapefile in is the name as the shapefile. The reason for this is because Carto will take zip files to upload rather than invidual .shp files so it will be easier to organize the data when you upload a Zip folder that has the same name as the shapefile.
+Now that we have a shapefile we should copy the shapefile components to an ouput folder. In the code the name of the output folder I'm putting a shapefile in is the name as the shapefile. The reason for this is because Carto will take zip files to upload rather than invidual .shp files so it will be easier to organize the data when you upload a Zip folder that has the same name as the shapefile. This is why I asked for all of those folders to be made back in Part 1.
 
 ```Python
 # Copy components of shapefile to Google Drive
