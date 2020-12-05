@@ -16,10 +16,11 @@ If you have GitHub you can connect it to a Carto account, however if you have a 
 
 - You can only have a maximum of ten datasets in your account.
 
-With this tutorial we will not exceed these limitsm however if you made maps before on Carto and have teh free version then you may reach one of these limits beore being able to produce all of the maps.
+With this tutorial we will not exceed these limits however if you made maps before on Carto and have the free version then you may reach one of these limits before being able to produce all of the maps.
 
-### Background on GeoPandas the Library for the Tutorial
+### Background on the GeoPandas Library for the Tutorial
 
+GeoPandas is a library that is an extension of the Pandas library (a library with similar functions similar to Excel). However unlike Pandas, GeoPandas can perform spatial operations on geometric files. GeoPandas has these operations performed from the Shapely package. In addition, to perform the operations needed for this tutorial GeoPandas relies on the packages rtree and spatial index as dependencies, meaning it depends on those packages to run. The GeoPandas operations that will be used for this tutorial are explained in the following section.
 
 ## Introduction to the Tutorial
 For this tutorial you will learn how to use the geopandas library in Python to create a few different maps within Carto that shows the prescence of greenspace within Worcester, and how the prescence of greenspace varies in Worcester neighborhoods that are deemed Environmental Justice neighborhoods with all criteria, Environmental Justice neighborhoods with some criteria and neighborhoods that are not deemed Environmental Justice neighborhoods. Keep reading to learn what an Environmental Justice neighborhood with some or all criteria are. 
