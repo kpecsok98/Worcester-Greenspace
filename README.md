@@ -46,7 +46,7 @@ In this tutorial you will learn to do the following operations with the geopanda
 
 **Difference**: Create a new shapefile by removing parts of the input shapefile that fall within another shapefile. This is the equivalent to the Erase Operation in ArcMap. To see where I figured out how to do this with geopandas, click on this [link](https://geopandas.org/set_operations.html).
 
-If you wish to see these maps, please check them out at these links.
+Overall this tutorial is a great way to create maps with simple geometric operations that can reveal useful information. This tutorial can particularly be helpful to anyone who does not have access to ArcMap to perform these spatial operations and create maps.
 
 
 ### Objective 
