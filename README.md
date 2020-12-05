@@ -1,4 +1,4 @@
-# Visually Analyzing Green Space in Worcester by Environmental Justice Neigbhorhood Presence
+# Visually Analyzing Green Space in Worcester by Environmental Justice Census Block Group (CBG) Presence
 This tutorial was created by Kyle Pecsok as a final project for Professor Shadrock Robert's Course 'Computer Programming for GIS' course. If you have any questions please feel free to email me at kpecsok@clarku.edu.
 
 ### Things needed for this tutorial
@@ -26,7 +26,7 @@ GeoPandas is a library that is an extension of the Pandas library (a library wit
 For this tutorial you will learn how to use the geopandas library in Python to create a few different maps within Carto that shows the prescence of greenspace within Worcester, and how the prescence of greenspace varies in Worcester neighborhoods that are deemed Environmental Justice neighborhoods with all criteria, Environmental Justice neighborhoods with some criteria and neighborhoods that are not deemed Environmental Justice neighborhoods. Keep reading to learn what an Environmental Justice neighborhood with some or all criteria are. 
 
 Below are the following maps that will be created for this tutorial. If you wish to view these maps on Carto there is a link next to each image, which will send you to Carto to show an interactive version of that map. This is very helpful in allowing viewers to examine where in Worcester greenspace, Environmental Justice neighoborhoods are, and where Worcester greenspace is located within Environmental Justice neighborhoods. Using Carto is a great way to look interactively look at the locations of the shapefiles based on street and landmarks, for instance through this map I can zoom in and see which neighborhoods surrounding Clark Univeristy (my institution) considered Environmental Jusitce neighborhoods. You will notice that thought at in addition I have a map showing tree cover in Worcester. This was a map that I created using Worcester treecover data, however this data is not allowed for public use so I will not be sharing it, but if you are interested in seeing how I got the treecover data into this Carto Map, I will have a section explaining this. Perhaps if you want to add additional data to your map that I didn't include, it could potentially be helpful to review the treecover section.
-9
+
 While the maps I made were intended specifically for Worcester, you can do these maps for any town in Massachusetts with the data I provided. In the instructions of this tutorial I will explain how you can choose to do a different Massachusetts town. Here are the maps below:
 
 **[Worcester Environmental Justce Neighborhood Map](https://kpecsok98.carto.com/builder/08cf7549-84d4-4e3b-8d22-1ce2592218f1/embed)** ![Kyle's cool map](images/EJ_Map.PNG)
@@ -52,7 +52,7 @@ If you wish to see these maps, please check them out at these links.
 ### Objective 
 Having greenspace and treecover, particularly in urban communities, can provide many benefits that grey infrastructure can't provide such as inhibiting the impacts of the Urban Heat Island Effect, absorbing pollutants, and reducing the risk of flooding and erosion (Hebbert and Jankovi, 2011; Burger et al., 2017). In addition they can provide mental and physical health benefits to residents who in live in areas with these spaces (Wolch et al., 2014; Sallis and Ganz, 2009). 
 
-However studies show that spaces disproportionately lie within communities that are white and affluent (Boone at al., 2009; Wolch et al., 2014). Through this tutorial the objective is to see if it appears through visualization that this is the case in Worcester as well. In order to do this, the tutorial will lead the user to create layers that show the prescence of greenspace in non-Environmental Justice neighborhoods and Environmental Justice neighborhoods. Well what is an Environmental Justice neighborhood? An [Environmental Justice neighborhood](https://docs.digital.mass.gov/dataset/massgis-data-2010-us-census-environmental-justice-populations) as defined by the Massachusetts Executive Office of Energy and and Environmental Affairs has to fulfill one of the following criteria at the Census Block Group (CBG) level:
+However studies show that spaces disproportionately lie within communities that are white and affluent (Boone at al., 2009; Wolch et al., 2014). Through this tutorial the objective is to see if it appears through visualization that this is the case in Worcester as well. In order to do this, the tutorial will lead the user to create layers that show the prescence of greenspace in non-Environmental Justice neighborhoods and Environmental Justice neighborhoods. Well what is an Environmental Justice neighborhood? An [Environmental Justice Neighborhood](https://docs.digital.mass.gov/dataset/massgis-data-2010-us-census-environmental-justice-populations) as defined by the Massachusetts Executive Office of Energy and and Environmental Affairs has to fulfill one of the following criteria at the Census Block Group (CBG) level:
 
 1. Have a minority population that is >= 25% as of 2010.
 
@@ -369,7 +369,7 @@ Once you log onto Carto go to your Dashboard and click on the blue button that s
 
 Next we will want to add the 'Worcester_EJ_some' and the 'Worcester_EJ_all' data to Carto, so like with the Worcester data click 'Add New Layer' and upload these two zip files. Again the name of them may be a little off but it should be recognizable which zip folder is needed to upload.
 
-Once these data are uploaded let's make the following edits to the Worcester_EJ_all data. Follow these images below to see what to do.
+Once these data are uploaded let's make the following edits to the Worcester_EJ_all data on Carto. Follow these images below to see what to do.
 
 
 
@@ -377,9 +377,13 @@ Now let's do edits for the Worcester_EJ_some data. Again, follow these images be
 
 If you have any other maps to make with additional data you used feel free to do so like I did with the treecover data.
 
+Once you have made your maps you can decide whether or not you wish to keep it private or public. If you wish to make it public click Publish in the page of your map and set it to 'Public with Link'. If you have the free version of Carto keep in mind the number of public or private maps you have already produced, since you can only have three of each kind of map with that version of Carto.
 
-Once you're done with this map you can decide whether or not you wish to keep it private or public. If you wish to make it public click Publish in the page of your map and set it to 'Public with Link'. If you have the free version of Carto keep in mind the number of public or private maps you have already produced, since you can only have three of each kind of map with that version of Carto.
+#### Creating a Map on Carto with Treecover Data (Optional to Follow)
+As metnioned this is data that was not provided for the tutorial, and this is just an explanation of the steps I took to create this map. I followed the same steps to upload the treecover data to Carto as I did for the other data. Once this data was uploaded I did the following tasks which the images below show. 
 
+
+### Conclusion
 I hope you enjoyed doing this tutorial and creating these new shapefiles to produce a neat interactive map that you can share with others. If you wish to learn more about GeoPandas library click on this [link](https://geopandas.org/). Lastly, if you have any questions or face any issues during this tutorial feel free to email me at kpecsok@clarku.edu.
 
 ### References
