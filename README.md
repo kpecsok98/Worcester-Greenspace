@@ -18,6 +18,8 @@ If you have GitHub you can connect it to a Carto account, however if you have a 
 
 With this tutorial we will not exceed these limitsm however if you made maps before on Carto and have teh free version then you may reach one of these limits beore being able to produce all of the maps.
 
+### Background on GeoPandas the Library for the Tutorial
+
 
 ## Introduction to the Tutorial
 For this tutorial you will learn how to use the geopandas library in Python to create a few different maps within Carto that shows the prescence of greenspace within Worcester, and how the prescence of greenspace varies in Worcester neighborhoods that are deemed Environmental Justice neighborhoods with all criteria, Environmental Justice neighborhoods with some criteria and neighborhoods that are not deemed Environmental Justice neighborhoods. Keep reading to learn what an Environmental Justice neighborhood with some or all criteria are. 
@@ -371,5 +373,22 @@ Once these data are uploaded let's make the following edits to the Worcester_EJ_
 
 
 Now let's do edits for the Worcester_EJ_some data. Again, follow these images below to see what to do.
+
+If you have any other maps to make with additional data you used feel free to do so like I did with the treecover data.
+
+
+Once you're done with this map you can decide whether or not you wish to keep it private or public. If you wish to make it public click Publish in the page of your map and set it to 'Public with Link'. If you have the free version of Carto keep in mind the number of public or private maps you have already produced, since you can only have three of each kind of map with that version of Carto.
+
+I hope you enjoyed doing this tutorial and creating these new shapefiles to produce a neat interactive map that you can share with others. If you wish to learn more about GeoPandas library click on this [link](https://geopandas.org/). Lastly, if you have any questions or face any issues during this tutorial feel free to email me at kpecsok@clarku.edu.
+
+### References
+
+Boone, C. G., Buckley, G. L., Grove, J. M., & Sister, C. (2009). Parks and people: An environmental justice inquiry in Baltimore, Maryland. Annals of the Association of American Geographers, 99(4), 767–787. https://doi.org/10.1080/00045600903102949
+
+Burger, J., Davis, V., Franklin, J., Zipper, C., Skousen, J., Barton, C., & Angel, P. (2017). Forest Reclamation Advisories no 6: Tree-Compatible Ground Covers for Reforestation and Erosion Control. (6), 8. Retrieved from https://arri.osmre.gov/FRA/Advisories/Advisories.shtm
+
+Hebbert, M., & Jankovic, V. (2013). Cities and climate change: the precedents and why they matter. Urban Studies, 50(7), 1332–1347. Retrieved from https://doi.org/10.1177/0042098013480970
+
+Wolch, J. R., Byrne, J., & Newell, J. P. (2014). Urban green space, public health, and environmental justice: The challenge of making cities “just green enough.” Landscape and Urban Planning, 125, 234–244. https://doi.org/10.1016/j.landurbplan.2014.01.017
 
 
