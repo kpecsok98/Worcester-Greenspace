@@ -1,5 +1,5 @@
 # Visually Analyzing Green Space in Worcester by Environmental Justice Census Block Group (CBG) Presence
-This tutorial was created by Kyle Pecsok as a final project for Professor Shadrock Robert's Course 'Computer Programming for GIS' course. If you have any questions please feel free to email me at kpecsok@clarku.edu.
+This tutorial was created by Kyle Pecsok as a final project for Professor Shadrock Robert's 'Computer Programming for GIS' course at Clark University. If you have any questions please feel free to email me at kpecsok@clarku.edu.
 
 ### Things needed for this tutorial
 - A Google Colab account, unless you have another coding software and know how to connect input data to the code, and place data created in the code to a new output folder.
