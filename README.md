@@ -343,21 +343,21 @@ The output should look like this.
 If all the outputs for the geodatagrames created look correct, we are now done with creating geodataframes. When I initally created this tutorial I was hopeful that I could clip the treecover data within the EJ CBGs with all and some criteria, but unfortunately by Google Colab crashed multiple times when trying to do so :(. So instead, I just ended up showing the projected tree_cover data in a Carto data, however the code below shows how I would have clipped the tree_cover data had it worked. 
 
 ```Python
-#Code to clip treecover within the Worcester Environmental Justice block groups file
+# Code to clip treecover within the Worcester Environmental Justice block groups file
 '''
 Worcester_EJ_all_treecover = gdp.clip(Worcester_treecover, Worcester_EJ_all)
 '''
 ```
 
 ```Python
-#Code to clip Worcester treecover within the Worcester Environmental Justice block groups with some criteria file
+# Code to clip Worcester treecover within the Worcester Environmental Justice block groups with some criteria file
 '''
 Worcester_EJ_some_treecover = gdp.clip(Worcester_treecover, Worcester_EJ_some)
 '''
 ```
 
 ```Python
-#Code to erase Worcester treecover data that are within the Environmeantl Justice block groups.
+# Code to erase Worcester treecover data that are within the Environmeantl Justice block groups.
 '''
 Worcester_treecover_NonEJ = gpd.overlay(Worcester_greenspace, Worcester_EJ, how = 'difference')
 '''
