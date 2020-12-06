@@ -462,7 +462,7 @@ Now that we have a shapefile we should copy the shapefile components to an ouput
 
 Once you copy the shapefile components to Google Drive, you should download each folder that you put outputs in. Once you download these Zip files you don't need to unzip as you can just upload them to Carto as a Zip file. The name of folder that you download from Google Drive then upload to Colab should have the same name as the shapefile components that are within the folder. If you are not doing this with Colab make sure that your output folder is Zipped before uploading it to Carto. 
 
-Once you log onto Carto go to your Dashboard and click on the blue button that says 'New Map', then click 'Create Empty Map'. Once you click that button you will have an empty map. The first map we will creater will show the locations of the Worcester Environmental Justice CBGs that fulfill all criteria, and the Environmental Justcie CBGs that fulfill only some of the criteria. First edit the title of this map by clicking the name of the map in the top left corner, and call it 'Worcester EJ Map'. Next, we want to download the Worcester.shp file. To do this click 'Add New Layer', and then upload the zip file called 'Worcester'.
+Once you log onto Carto go to your Dashboard and click on the blue button that says 'New Map', then click 'Create Empty Map'. Once you click that button you will have an empty map. The first map we will creater will show the locations of the Worcester Environmental Justice CBGs that fulfill all criteria, and the Environmental Justcie CBGs that fulfill only some of the criteria. First edit the title of this map by clicking the name of the map in the top left corner, and call it 'Worcester EJ Map'. Next, we want to download the 'Worcester.shp' file. To do this click 'Add New Layer', and then upload the zip file called 'Worcester'.
 
 Click on the three dots next to the layer name and click 'Edit layer'. Next, click on the Style tab and change the Stroke size to 5. Next, change the colors and transparencies of the polygon and stroke to what is shown below.
 
@@ -473,25 +473,25 @@ Stroke color and transparency adjustment:
 
 Next we will want to add the 'Worcester_EJ_some' and the 'Worcester_EJ_all' data to Carto, so like with the Worcester data click 'Add New Layer' and upload these two zip files. 
 
-Once these data are uploaded let's make the following edits to the Worcester_EJ_all data on Carto. First on the three circles next to the Worcester_EJ_all data and then click edit layer. Once you do this click on the name of the file at the top and double click on it then type 'Worcester EJ All Criteria'. Next, click on the Style tab and leave everything as default except for the color of the polygon and stroke. Click on the Polygon and stroke color line to adjust the colors and transparencies of them to what is shown in the images below. 
+Once these data are uploaded let's make the following edits to the Worcester_EJ_all data on Carto. First on the three circles next to the Worcester_EJ_all data and then click edit layer. Once you do this click on the name of the file at the top and double click on it then type 'Worcester EJ All Criteria'. Next, click on the Style tab and leave everything as default except for the color and transparency of the polygon. Click on the Polygon color line to adjust the colors and transparencies of it to what is shown in the image below. 
 
 
 
-Now let's do edits for the Worcester_EJ_some data. Again, click on the three circles next to the Worcester_EJ_some data and then click edit layer. Once you do this click on the name of the file at the top and double click on it then type 'Worcester EJ Some Criteria'. Next, click on the Style tab and leave everything as default except for the color of the polygon and stroke. Click on the Polygon and stroke color line to adjust the colors and transparencies of them to what is shown in the images below. 
+Now let's do edits for the Worcester_EJ_some data. Again, click on the three circles next to the Worcester_EJ_some data and then click edit layer. Once you do this click on the name of the file at the top and double click on it then type 'Worcester EJ Some Criteria'. Next, click on the Style tab and leave everything as default except for the color and transparency of the polygon. Click on the polygon color line to adjust the colors and transparencies of it to what is shown in the images below. 
 
 
 Now we'll make another map. Go back to the dashboard and do the same thing as before. This time name the map 'Worcester Greenspace Map', and once again add the Worcester layer and edit the stroke and polygon colors and transparencies like for the Worcester EJ Map. 
 
-Once you download the Worcester data, download the Zipfiles that contain, ''Worcester_greenspace_NonEJ.shp', 'Worcester_EJ_some_greenspace.shp', 'Worcester_EJ_all_greenspace.shp'. After these Zipfiles are downloaded first click 'Edit layer' for the 'Worcester_greenspace_NonEJ' layer. Like with the other layers change the name of it to Worcester Green Space No EJ Criteria, and look at the images below to see what the colors and transparencies of the polygon and strokes should be.
+Once you download the Worcester data, download the Zipfiles that contain, ''Worcester_greenspace_NonEJ.shp', 'Worcester_EJ_some_greenspace.shp', 'Worcester_EJ_all_greenspace.shp'. After these Zipfiles are downloaded first click 'Edit layer' for the 'Worcester_greenspace_NonEJ' layer. Like with the other layers change the name of it to Worcester Green Space No EJ Criteria, and look at the images below to see what the colors and transparencies of the polygons should be.
 
-Now edit the Worcester_EJ_some_greenspace layer and change the name to 'Worcester Green Space Some EJ Critera' and look at the images below to see how to set the color and transparencies of the polygon and strokes.
+Now edit the Worcester_EJ_some_greenspace layer and change the name to 'Worcester Green Space Some EJ Critera' and look at the images below to see how to set the color and transparency of the polygon.
 
 If you have any other maps to make with additional data you used feel free to do so like I did with the treecover data.
 
 Once you have made your maps you can decide whether or not you wish to keep it private or public. If you wish to make it public click Publish in the page of your map and set it to 'Public with Link'. If you have the free version of Carto keep in mind the number of public or private maps you have already produced, since you can only have three of each kind of map with that version of Carto.
 
 #### Creating a Map on Carto with Treecover Data (Optional to Follow)
-As metnioned this is data that was not provided for the tutorial, and this is just an explanation of the steps I took to create this map, which I called 'Worcester Treecover Map'. Like with the other maps I created on Carto, the Worcester data was uploaded and I adjusted the color and transparency of this data to be the same as this layer was in the other two maps. Next, I uploaded the treecover data and changed the name of it to Worcester Tree Cover. The images below show how I altered the color and transparency of the polygon and strokes of this data.
+As metnioned this is data that was not provided for the tutorial, and this is just an explanation of the steps I took to create this map, which I called 'Worcester Treecover Map'. Like with the other maps I created on Carto, the Worcester data was uploaded and I adjusted the color and transparency of this data to be the same as this layer was in the other two maps. Next, I uploaded the treecover data and changed the name of it to Worcester Tree Cover. The images below show how I altered the color of the polygon.
 
 
 ### Conclusion
