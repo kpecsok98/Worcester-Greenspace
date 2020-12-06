@@ -78,17 +78,19 @@ All the data needed is availabe in the data folder of this repo, but if you woul
 Please note that this tutorial is run on the assumption that the user is using Google Colab. So when connecting the input data and placing the output data, you will need to determine how to do this if you're not using Google Colab. If you're using Google Colab be sure to upload data to your Google Drive.
 
 ### Part 1 (Importing Libraries and Downloading Data)
-First download all the libraries that will be needed for this lab
+First download all the libraries that will be needed for this lab. **If you are not using Colab you may need to install pandas, if you're using Colab you don't because Pandas is already installed in the Google Colab Environment.**
 ```Python
+# Add the needed packages to Colab Environment
 !pip install geopandas
 !apt-get install -y libspatialindex-dev
 !pip install rtree
 
-import geopandas as gpd
-import pandas as pd
+# Import the needed packages once they're installed
+import pandas as pd # an interface is provided through this to 
+import geopandas as gpd # combines panda's capabilities with those of shapely to perform geospatial operations
 import rtree # needed for doing the geometric operations with geopandas 
-from shapely.geometry import Point, Polygon, MultiPolygon  # for manipulating text data into geospatial shapes
-from shapely import wkt  # stands for "well known text," allows for interchange across GIS programs
+from shapely.geometry import Point, Polygon, MultiPolygon  # manipulates text data into geospatial shapes
+from shapely import wkt  # stands for "well known text," allows for the interchange of data across GIS programs
 ```
 
 
@@ -163,15 +165,33 @@ I also projected the tree_cover data. Again this is not data that you as the use
 tree_cover = tree_cover.to_crs("EPSG:4326")
 ```
 
-Now let's check the CRS of one of the files we initially downloaded. Let's check the CRS of  ```environmentaljustice```. ![Kyle's cool map](images/Final_CRS.PNG)
+Now let's check the CRS of one of the files we initially downloaded. Let's check the CRS of  ```environmentaljustice```.
 
 ```Python
 # Check the new Coordinate Reference System of environmentaljustice
 environmentaljustice.crs
 ```
 
-You should now get this output. Feel free to check the other shapefiles that your projected if you would like, they all should have that CRS now.
+You should now get this output. ![Kyle's cool map](images/Final_CRS.PNG) 
 
+Now check the new CRS for the other data and make sure they all have the same output with a WGS 1984 CRS.
+
+```Python
+# Check the new Coordinate Reference System of greenspace
+greenspace.crs
+```
+
+```Python
+# Check the new Coordinate Reference System of towns
+towns.crs
+```
+
+This is what I did to check to make sure I had the correct projection for the tree_cover data
+
+```Python
+# Check the new Coordinate Reference System to tree_cover
+tree_cover.crs
+```
 
 ### Part 3 (Create new shapefiles)
 
@@ -215,37 +235,82 @@ If it does great! That polygon is of the city of Worcester. If your output doesn
 Next we want to take the Environmental Justice CBG shapefile and do a Select by Attribute again. Just like with the towns data we will select items in the TOWNS column that is Worcester, which means we will select Environmental Justice CBGs that are in Worcester to create a new shapefile these types of CBGs that are solely within Worcester.
 
 ```Python
-#From Environmental Justice Block group file select by attribute to get Worcester
-Worcester_EJ = environmentaljustice[environmentaljustice['TOWN']== "WORCESTER"] #Within TOWN column of attribute table select WORCESTER
+# From Environmental Justice Block group file select by attribute to get Worcester
+Worcester_EJ = environmentaljustice[environmentaljustice['TOWN']== "WORCESTER"] # Within TOWN column of attribute table select WORCESTER
 ```
+
+Now let's check to see if ```Worcester_EJ``` looks correct. Type out the code below.
+
+```Python
+# Create a map of Worcester Environmental Justice CBGs
+Worcester_EJ.plot(column='TOWN', color='grey', figsize=(16,8));
+```
+
+Does your output look like this?
+
+Then perfect, you sucessfully created the Worcester_EJ geodataframe.
 
 Even though we have a variable now that contains Environmental Justice CBGs in Worcester, there's still more we need to do. We don't just want to compare greenspace in Enivronmental Justice CBGs and Non-Environmental CBGs, we also want to see how greenspace in Worcester compares in Environmental Justice CBGs that fulfill all three criteria, and Environmental Justice CBGs that fulfill some criteria. If you want to see what the criteria are, go back to the Objective section of this tutorial where I list off the three Environmental Justice criteria. So first let's work to create a shapefile that is of Environmental Justice CBGs that fulfill all three criteria, we will do this again through a Select by Attribute. In this code below we simply just select Environmental CBGs within Worcester that satisfy all three criteria, which means we only select those CBGs that have a ```CRIT_CNT``` (short for Criteria Count) that is equal to three.
 
 ```Python
-#From Worcester Environmental Justiec Block Group file select by attribute to select Block Groups with all three criteria.
-Worcester_EJ_all = Worcester_EJ[Worcester_EJ['CRIT_CNT']==3] #Within CRIT_CNT column of attribute select block groups with a value of 3.
+# From Worcester Environmental Justice Block Group file select by attribute to select Block Groups with all three criteria.
+Worcester_EJ_all = Worcester_EJ[Worcester_EJ['CRIT_CNT']==3] # Within CRIT_CNT column of attribute select block groups with a value of 3.
 ```
+
+Again, let's just check and make sure ```Worcester_EJ_all``` looks correct. Type out this code below.
+
+```Python
+# Create a map of Worcester Environmental Justice CBGs that fulfill all criteria
+Worcester_EJ_all.plot(column='TOWN', color='grey', figsize=(16,8));
+```
+
+The output should look like this.
 
 Now we want to work towards creating a shapefile of Environmental Justice CBGs in Worcester that only fulfill some criteria. To do thiis we will type pretty similar code as last time except we will want ```CRIT_CNT``` to be values of less than 3, in other words we are selecting by attribute for Environmental Justice CBGs that fulfill less than three criteria.
 
 ```Python
-# From Worcester Environmental Justiec Block Group file select by attribute to select Block Groups with all three criteria.
+# From Worcester Environmental Justice Block Group file select by attribute to select Block Groups with all three criteria.
 Worcester_EJ_some = Worcester_EJ[Worcester_EJ['CRIT_CNT']<3] # Within CRIT_CNT column of attribute select block groups with a value less than 3.
 ```
+
+Again type in the following code to create a map of your geodataframe.
+
+```Python
+# Create a map of Worcester Environmental Justice CBGs that fulfill some criteria
+Worcester_EJ_some.plot(column='TOWN', color='grey', figsize=(16,8));
+```
+Your output should look like this.
 
 Next we want to create geodataframes that contain data of greenspace exclusively in Worcester. We can do this with a Clip. First let's clip ```greenspace``` within Worcester by typing the following code. 
 
 ```Python
-#Clip greenspace within Worcester
+# Clip greenspace within Worcester
 Worcester_greenspace = gpd.clip(greenspace, Worcester)
 ```
+
+Type the code below to see what the geodataframe looks like mapped.
+
+```Python
+# Create a map of Worcester greenspace
+Worcester_greenspace.plot(column='TOWN_ID', color='grey', figsize=(16,8));
+```
+It should look like this.
 
 Now we have a geodataframe of greenspace within the Worcester city limits. In our final maps though we want to see where are the greensapces that fall within Worcester EJ CBGs that fulfill some or all criteria. Next let's create a geodataframe of greenspace that fall within Worcester EJ CBGs that fulfill all criteria.
 
 ```Python
-#Clip the Worcester greenspace file within the Worcester Environmental Justice block groups with all criteria file
+# Clip the Worcester greenspace file within the Worcester Environmental Justice block groups with all criteria file
 Worcester_EJ_all_greenspace = gpd.clip(Worcester_greenspace, Worcester_EJ_all)
 ```
+
+Type the code below to see what the geodataframe looks like mapped.
+
+```Python
+# Create a map of Worcester greenspace that's within Environmental Justice block groups with all criteria
+Worcester_EJ_all_greenspace.plot(column='TOWN_ID', color='grey', figsize=(16,8));
+```
+
+It should look like this
 
 Now we'll create a geodataframe of greenspaces within Worcester EJ CBGs that only fulfill some criteria.
 
@@ -254,14 +319,28 @@ Now we'll create a geodataframe of greenspaces within Worcester EJ CBGs that onl
 Worcester_EJ_some_greenspace = gpd.clip(Worcester_greenspace, Worcester_EJ_some)
 ```
 
-Lastly, we want to create a geodatagrame that contains of Worcester greenspace that is not within an EJ CBG, regardless of how many criteria it has. To do this type the following code.
+Type the code below to see what the geodataframe looks like mapped.
+```Python
+# Create a map of Worcester greenspace that's within Environmental Justice block groups with some criteria
+Worcester_EJ_some_greenspace.plot(column='TOWN_ID', color='grey', figsize=(16,8));
+```
+It should look like this
+
+Lastly, we want to create a geodataframe that contains of Worcester greenspace that is not within an EJ CBG, regardless of how many criteria it has. To do this type the following code.
 
 ```Python
 # Erase Worcester greenspace within areas that Worcester Environmental Justice block groups are in
 Worcester_greenspace_NonEJ = gpd.overlay(Worcester_greenspace, Worcester_EJ, how = 'difference')
 ```
+One last time, type the code below to see what the geodataframe looks like mapped.
 
-We are now done with typing geodataframes. When I initally created this tutorial I was hopeful that I could clip the treecover data within the EJ CBGs with all and some criteria, but unfortunately by Google Colab crashed multiple times when trying to do so :(. So instead, I just ended up showing the projected tree_cover data in a Carto data, however the code below shows how I would have clipped the tree_cover data had it worked. 
+```Python
+# Create a map of Worcester greenspace that's not within an Environmental Justice block group
+Worcester_greenspace_NonEJ.plot(column='TOWN_ID', color='grey', figsize=(16,8));
+```
+The output should look like this.
+
+If all the outputs for the geodatagrames created look correct, we are now done with creating geodataframes. When I initally created this tutorial I was hopeful that I could clip the treecover data within the EJ CBGs with all and some criteria, but unfortunately by Google Colab crashed multiple times when trying to do so :(. So instead, I just ended up showing the projected tree_cover data in a Carto data, however the code below shows how I would have clipped the tree_cover data had it worked. 
 
 ```Python
 #Code to clip treecover within the Worcester Environmental Justice block groups file
