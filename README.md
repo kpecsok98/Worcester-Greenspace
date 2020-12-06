@@ -294,7 +294,7 @@ Type the code below to see what the geodataframe looks like mapped.
 # Create a map of Worcester greenspace
 Worcester_greenspace.plot(column='TOWN_ID', color='grey', figsize=(16,8));
 ```
-It should look like this.![Kyle's cool map](images/Worcester_greenspace_Plot.PNG)
+It should look like this.![Kyle's cool map](images/Worcester_greenspace_plot.PNG)
 
 Now we have a geodataframe of greenspace within the Worcester city limits. In our final maps though we want to see where are the greensapces that fall within Worcester EJ CBGs that fulfill some or all criteria. Next let's create a geodataframe of greenspace that fall within Worcester EJ CBGs that fulfill all criteria.
 
@@ -310,7 +310,7 @@ Type the code below to see what the geodataframe looks like mapped.
 Worcester_EJ_all_greenspace.plot(column='TOWN_ID', color='grey', figsize=(16,8));
 ```
 
-It should look like this. ![Kyle's cool map](images/Worcester_greenspace_Plot.PNG)
+It should look like this. ![Kyle's cool map](images/Worcester_EJ_all_greenspace_Plot.PNG)
 
 Now we'll create a geodataframe of greenspaces within Worcester EJ CBGs that only fulfill some criteria.
 
@@ -338,7 +338,7 @@ One last time, type the code below to see what the geodataframe looks like mappe
 # Create a map of Worcester greenspace that's not within an Environmental Justice block group
 Worcester_greenspace_NonEJ.plot(column='TOWN_ID', color='grey', figsize=(16,8));
 ```
-The output should look like this. ![Kyle's cool map](images/Worcester_nonEJ_greenspace_Plot.PNG)
+The output should look like this. ![Kyle's cool map](images/Worcester_nonEJ_greenspace.PNG)
 
 If all the outputs for the geodatagrames created look correct, we are now done with creating geodataframes. When I initally created this tutorial I was hopeful that I could clip the treecover data within the EJ CBGs with all and some criteria, but unfortunately by Google Colab crashed multiple times when trying to do so :(. So instead, I just ended up showing the projected tree_cover data in a Carto data, however the code below shows how I would have clipped the tree_cover data had it worked. 
 
