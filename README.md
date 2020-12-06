@@ -230,7 +230,7 @@ Worcester.plot(column='TOWN', color='grey', figsize=(16,8));
 Does your ouput look like this? ![Kyle's cool map](images/WorcesterPlot.PNG)
 
 
-If it does great! That polygon is of the city of Worcester. If your output doesn't look like that, go back and make sure that you did all of the prior steps correctly. For the rest of the tutorial I'm not going to do this again, however if you want to double check to see if your select by attribute, clip, or difference was performed correctly in the following steps, just follow the same format as above to see what the polygon of your new file looks like. When doing this just be sure that in ```column=``` you enter, you enter the name of a column that is actually in the data's attribute table. 
+If it does great! That polygon is of the city of Worcester. If your output doesn't look like that, go back and make sure that you did all of the prior steps correctly. For the rest of the tutorial I'll show you how to do this with the other GeoDataFrames we create. While it may overall seem tedious and a little time-consuming to do, it will be very useful to do to ensure that our GeoDataFrames are correct before converting them to shapefiles and placing them into Carto.
 
 Next we want to take the Environmental Justice CBG shapefile and do a Select by Attribute again. Just like with the towns data we will select items in the TOWNS column that is Worcester, which means we will select Environmental Justice CBGs that are in Worcester to create a new shapefile these types of CBGs that are solely within Worcester.
 
@@ -246,7 +246,7 @@ Now let's check to see if ```Worcester_EJ``` looks correct. Type out the code be
 Worcester_EJ.plot(column='TOWN', color='grey', figsize=(16,8));
 ```
 
-Does your output look like this?
+Does your output look like this? ![Kyle's cool map](images/Worcester_EJ_Plot.PNG) 
 
 Then perfect, you sucessfully created the Worcester_EJ geodataframe.
 
@@ -264,7 +264,7 @@ Again, let's just check and make sure ```Worcester_EJ_all``` looks correct. Type
 Worcester_EJ_all.plot(column='TOWN', color='grey', figsize=(16,8));
 ```
 
-The output should look like this.
+The output should look like this. ![Kyle's cool map](images/Worcester_EJ_all_Plot.PNG)
 
 Now we want to work towards creating a shapefile of Environmental Justice CBGs in Worcester that only fulfill some criteria. To do thiis we will type pretty similar code as last time except we will want ```CRIT_CNT``` to be values of less than 3, in other words we are selecting by attribute for Environmental Justice CBGs that fulfill less than three criteria.
 
@@ -279,7 +279,7 @@ Again type in the following code to create a map of your geodataframe.
 # Create a map of Worcester Environmental Justice CBGs that fulfill some criteria
 Worcester_EJ_some.plot(column='TOWN', color='grey', figsize=(16,8));
 ```
-Your output should look like this.
+Your output should look like this. ![Kyle's cool map](images/Worcester_EJ_some_Plot.PNG)
 
 Next we want to create geodataframes that contain data of greenspace exclusively in Worcester. We can do this with a Clip. First let's clip ```greenspace``` within Worcester by typing the following code. 
 
@@ -294,7 +294,7 @@ Type the code below to see what the geodataframe looks like mapped.
 # Create a map of Worcester greenspace
 Worcester_greenspace.plot(column='TOWN_ID', color='grey', figsize=(16,8));
 ```
-It should look like this.
+It should look like this.![Kyle's cool map](images/Worcester_greenspace_Plot.PNG)
 
 Now we have a geodataframe of greenspace within the Worcester city limits. In our final maps though we want to see where are the greensapces that fall within Worcester EJ CBGs that fulfill some or all criteria. Next let's create a geodataframe of greenspace that fall within Worcester EJ CBGs that fulfill all criteria.
 
@@ -310,7 +310,7 @@ Type the code below to see what the geodataframe looks like mapped.
 Worcester_EJ_all_greenspace.plot(column='TOWN_ID', color='grey', figsize=(16,8));
 ```
 
-It should look like this
+It should look like this. ![Kyle's cool map](images/Worcester_greenspace_Plot.PNG)
 
 Now we'll create a geodataframe of greenspaces within Worcester EJ CBGs that only fulfill some criteria.
 
@@ -324,7 +324,7 @@ Type the code below to see what the geodataframe looks like mapped.
 # Create a map of Worcester greenspace that's within Environmental Justice block groups with some criteria
 Worcester_EJ_some_greenspace.plot(column='TOWN_ID', color='grey', figsize=(16,8));
 ```
-It should look like this
+It should look like this. ![Kyle's cool map](images/Worcester_EJ_some_greenspace_Plot.PNG)
 
 Lastly, we want to create a geodataframe that contains of Worcester greenspace that is not within an EJ CBG, regardless of how many criteria it has. To do this type the following code.
 
@@ -338,7 +338,7 @@ One last time, type the code below to see what the geodataframe looks like mappe
 # Create a map of Worcester greenspace that's not within an Environmental Justice block group
 Worcester_greenspace_NonEJ.plot(column='TOWN_ID', color='grey', figsize=(16,8));
 ```
-The output should look like this.
+The output should look like this. ![Kyle's cool map](images/Worcester_nonEJ_greenspace_Plot.PNG)
 
 If all the outputs for the geodatagrames created look correct, we are now done with creating geodataframes. When I initally created this tutorial I was hopeful that I could clip the treecover data within the EJ CBGs with all and some criteria, but unfortunately by Google Colab crashed multiple times when trying to do so :(. So instead, I just ended up showing the projected tree_cover data in a Carto data, however the code below shows how I would have clipped the tree_cover data had it worked. 
 
