@@ -29,7 +29,7 @@ Below are the following maps that will be created for this tutorial. If you wish
 
 While the maps I made were intended specifically for Worcester, you can do these maps for any town in Massachusetts with the data I provided. In the instructions of this tutorial I will explain how you can choose to do a different Massachusetts town. Here are the maps below:
 
-**[Worcester Environmental Justice CBG Map](https://kpecsok98.carto.com/builder/08cf7549-84d4-4e3b-8d22-1ce2592218f1/embed)** 
+**[Worcester Environmental Justice CBG Map](https://kpecsok98.carto.com/builder/08cf7549-84d4-4e3b-8d22-1ce2592218f1/embed)** ![Kyle's cool map](images/EJ_Map.PNG)
 
 **[Worcester Greenspace Map](https://kpecsok98.carto.com/builder/c70eedb3-c9cf-47bf-8a6e-a16cd3b029b4/embed)** ![Kyle's cool map](images/Greenspace_Map.PNG)
 
