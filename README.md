@@ -38,7 +38,7 @@ While the maps I made were intended specifically for Worcester, you can do these
 
 In this tutorial you will learn to do the following operations with the GeoPandas library:
 
-**Project**: Switch the Coordinate Reference System (CRS) of a shapefile. To see where I figure out how to do this with GeoPandas, click on this [link](https://geopandas.org/projections.html).
+**Project**: Switch the Coordinate Reference System (CRS) of a shapefile. To see where I figured out how to do this with GeoPandas, click on this [link](https://geopandas.org/projections.html).
 
 **Clip**: Create a new shapefile by cutting out the input shapefile to fit within the Clip feature shapefile. To see where I figured out how to do this with GeoPandas, click on this [link](https://geopandas.org/reference/geopandas.clip.html)
 
