@@ -69,7 +69,7 @@ All the data needed is unfortunately not available on GitHub because it was too 
 
 2. Environmental Justice CBG (EJ_POLY.shp): The data is available at this [link](https://docs.digital.mass.gov/dataset/massgis-data-2010-us-census-environmental-justice-populations) and contains all the Environmental Justice CBGs within Massachusetts. 
 
-3. Green Space (OPENSPACE_POLY.shp): The data is available at this [link](https://docs.digital.mass.gov/dataset/massgis-data-protected-and-recreational-openspace) and represents all conservation lands and outdoor recreational facilities. 
+3. Green Space (OPENSPACE_POLY.shp): The data is available at this [link](https://docs.digital.mass.gov/dataset/massgis-data-protected-and-recreational-openspace) and represents all conservation lands and outdoor recreational facilities within Massachusetts. 
 
 4. Tree Cover (UTCWooManualEdits_20150907_AElmes.shp): This shapefile is not available for use. This data was produced by former Clark PhD student Arthur Elemes and represents the tree cover in all of Worcester. 
 
