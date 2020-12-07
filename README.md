@@ -468,20 +468,25 @@ Click on the three dots next to the layer name and click 'Edit layer'. Next, cli
 
 Polygon color and transparency adjustment:
 
+![Kyle's cool map](images/Worcester_Polygon.PNG)
 
 Stroke color and transparency adjustment:
+
+![Kyle's cool map](images/Worcester_Stroke.PNG)
 
 Next we will want to add the 'Worcester_EJ_some' and the 'Worcester_EJ_all' data to Carto, so like with the Worcester data click 'Add New Layer' and upload these two zip files. 
 
 Once these data are uploaded let's make the following edits to the Worcester_EJ_all data on Carto. First on the three circles next to the Worcester_EJ_all data and then click edit layer. Once you do this click on the name of the file at the top and double click on it then type 'Worcester EJ All Criteria'. Next, click on the Style tab and leave everything as default except for the color and transparency of the polygon. Click on the Polygon color line to adjust the colors and transparencies of it to what is shown in the image below. 
 
+![Kyle's cool map](images/Worcester_EJ_all_polygon.PNG)
 
 Then click on the Legend tab, under Select Style click Custom Legend, and then there should be an option to type in the name of the legend item that is already in the color you chose. In the legend type in 'EJ CBG ALL CRITERIA'. 
 
-Now let's do edits for the Worcester_EJ_some data. Again, click on the three circles next to the Worcester_EJ_some data and then click edit layer. Once you do this click on the name of the file at the top and double click on it then type 'Worcester EJ Some Criteria'. Next, click on the Style tab and leave everything as default except for the color and transparency of the polygon. Click on the polygon color line to adjust the colors and transparencies of it to what is shown in the images below. 
+Now let's do edits for the Worcester_EJ_some data. Again, click on the three circles next to the Worcester_EJ_some data and then click edit layer. Once you do this click on the name of the file at the top and double click on it then type 'Worcester EJ Some Criteria'. Next, click on the Style tab and leave everything as default except for the color and transparency of the polygon. Click on the polygon color line to adjust the colors and transparencies of it to what is shown in the image below. 
 
+![Kyle's cool map](images/Worcester_EJ_some_polygon.PNG)
 
-Now let's add to the legend this time, so follow the same steps as done for the other polygon and type 'EJ CBG ALL CRITERIA'.
+Now let's add to the legend, so follow the same steps as done for the other polygon and type 'EJ CBG SOME CRITERIA'.
 
 If you want to check to make sure your map looks good feel free to look up at the map I produced at the top of the tutorial.
 
@@ -489,13 +494,19 @@ Now we'll make another map. Go back to the dashboard and do the same thing as be
 
 Once you download the Worcester data, download the Zipfiles that contain, ''Worcester_greenspace_NonEJ.shp', 'Worcester_EJ_some_greenspace.shp', 'Worcester_EJ_all_greenspace.shp'. After these Zipfiles are downloaded first click 'Edit layer' for the 'Worcester_greenspace_NonEJ' layer. Like with the other layers change the name of it to Worcester Green Space No EJ Criteria, and look at the image below to see what the colors and transparencies of the polygon should be.
 
+![Kyle's cool map](images/Worcester_Greenspace_EJAll_Polygon.PNG)
+
 Then in the legend add the name 'GREEN SPACE IN NO EJ CRITERIA CBG'
 
-Now edit the Worcester_EJ_some_greenspace layer and change the name to 'Worcester Green Space Some EJ Critera' and look at the images below to see how to set the color and transparency of the polygon.
+Now edit the Worcester_EJ_some_greenspace layer and change the name to 'Worcester Green Space Some EJ Critera' and look at the image below to see how to set the color and transparency of the polygon.
+
+![Kyle's cool map](images/Worcester_Greenspace_EJSome_Polygon.PNG)
 
 Again, go to the legend tab and add the name 'GREEN SPACE IN SOME EJ CRITERIA CBG'
 
-Lastly, edit the Worcester_EJ_all_greenspace layer and change the name to 'Worcester Green Space All EJ Critera' and look at the image below to see how to set the color and transparency of the polygon.
+Lastly, edit the Worcester_greenspace_NonEJ layer and change the name to 'Worcester Green Space All EJ Critera' and look at the image below to see how to set the color and transparency of the polygon.
+
+![Kyle's cool map](images/Worcester_Greenspace_EJNon_Polygon.PNG)
 
 Then in the legend type 'GREEN SPACE IN ALL EJ CRITERIA CBG'.
 
@@ -504,9 +515,9 @@ If you want to check to make sure this maps looks good feel free to look up at t
 Once you have made your maps you can decide whether or not you wish to keep it private or public. If you wish to make it public click Publish in the page of your map and set it to 'Public with Link'. If you have the free version of Carto keep in mind the number of public or private maps you have already produced, since you can only have three of each kind of map with that version of Carto.
 
 #### Creating a Map on Carto with Tree Cover Data (Optional to Follow)
-As mentioned this is data that was not provided for the tutorial, and this is just an explanation of the steps I took to create this map, which I called 'Worcester Treecover Map'. Like with the other maps I created on Carto, the Worcester data was uploaded and I adjusted the color and transparency of this data to be the same as this layer was in the other two maps. Next, I uploaded the treecover data and changed the name of it to Worcester Tree Cover. The images below show how I altered the color of the polygon.
+As mentioned this is data that was not provided for the tutorial, and this is just an explanation of the steps I took to create this map, which I called 'Worcester Treecover Map'. Like with the other maps I created on Carto, the Worcester data was uploaded and I adjusted the color and transparency of this data to be the same as this layer was in the other two maps. Next, I uploaded the treecover data and changed the name of it to Worcester Tree Cover. The images below show how I altered the color of that polygon.
 
-
+![Kyle's cool map](images/Worcester_TreeCover_Polygon.PNG)
 
 Lastly, I just went to the Legend tab and typed in 'Tree Cover in Worcester' as the first and only legend item and that was it.
 
