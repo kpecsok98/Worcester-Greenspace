@@ -23,15 +23,15 @@ With this tutorial we will not exceed these limits however if you made maps befo
 GeoPandas is a library that is an extension of the Pandas library (a library with similar functions similar to Excel). However unlike Pandas, GeoPandas can perform spatial operations on geometric files. GeoPandas has these operations performed from the Shapely package. In addition, to perform the operations needed for this tutorial GeoPandas relies on the packages rtree and spatial index as dependencies, meaning it depends on those packages to run. The GeoPandas operations that will be used for this tutorial are explained in the following section.
 
 ## Introduction to the Tutorial
-For this tutorial you will learn how to use the geopandas library in Python to create a few different maps within Carto that shows the prescence of greenspace within Worcester, and how the prescence of greenspace varies in Worcester neighborhoods that are deemed Environmental Justice neighborhoods with all criteria, Environmental Justice neighborhoods with some criteria and neighborhoods that are not deemed Environmental Justice neighborhoods. Keep reading to learn what an Environmental Justice neighborhood with some or all criteria are. 
+For this tutorial you will learn how to use the geopandas library in Python to create a few different maps within Carto that shows the prescence of green space within Worcester, and how the prescence of green space varies in Worcester CBGS that are deemed Environmental Justice  with all criteria, Environmental Justice with some criteria and CBGs that are not deemed Environmental Justice. Keep reading to learn what an Environmental Justice CBG with some or all criteria are. 
 
-Below are the following maps that will be created for this tutorial. If you wish to view these maps on Carto there is a link next to each image, which will send you to Carto to show an interactive version of that map. This is very helpful in allowing viewers to examine where in Worcester greenspace, Environmental Justice neighoborhoods are, and where Worcester greenspace is located within Environmental Justice neighborhoods. Using Carto is a great way to look interactively look at the locations of the shapefiles based on street and landmarks, for instance through this map I can zoom in and see which neighborhoods surrounding Clark Univeristy (my institution) considered Environmental Jusitce neighborhoods. You will notice that thought at in addition I have a map showing tree cover in Worcester. This was a map that I created using Worcester treecover data, however this data is not allowed for public use so I will not be sharing it, but if you are interested in seeing how I got the treecover data into this Carto Map, I will have a section explaining this. Perhaps if you want to add additional data to your map that I didn't include, it could potentially be helpful to review the treecover section.
+Below are the following maps that will be created for this tutorial. If you wish to view these maps on Carto there is a link next to each image, which will send you to Carto to show an interactive version of that map. This is very helpful in allowing viewers to examine where in Worcester green space, Environmental Justice CBGs are, and where Worcester green space is located within Environmental Justice CBGs. Using Carto is a great way to look interactively look at the locations of the shapefiles based on street and landmarks, for instance through this map I can zoom in and see which CBGs surrounding Clark Univeristy (my institution) considered Environmental Jusitce CBGs. You will notice that thought at in addition I have a map showing tree cover in Worcester. This was a map that I created using Worcester treecover data, however this data is not allowed for public use so I will not be sharing it, but if you are interested in seeing how I got the treecover data into this Carto Map, I will have a section explaining this. Perhaps if you want to add additional data to your map that I didn't include, it could potentially be helpful to review the treecover section.
 
 While the maps I made were intended specifically for Worcester, you can do these maps for any town in Massachusetts with the data I provided. In the instructions of this tutorial I will explain how you can choose to do a different Massachusetts town. Here are the maps below:
 
 **[Worcester Environmental Justice CBG Map](https://kpecsok98.carto.com/builder/08cf7549-84d4-4e3b-8d22-1ce2592218f1/embed)** ![Kyle's cool map](images/EJ_Map.PNG)
 
-**[Worcester Greenspace Map](https://kpecsok98.carto.com/builder/c70eedb3-c9cf-47bf-8a6e-a16cd3b029b4/embed)** ![Kyle's cool map](images/Greenspace_Map.PNG)
+**[Worcester Green Space Map](https://kpecsok98.carto.com/builder/c70eedb3-c9cf-47bf-8a6e-a16cd3b029b4/embed)** ![Kyle's cool map](images/Greenspace_Map.PNG)
 
 **[Worcester Treecover Map](https://kpecsok98.carto.com/builder/42b670c2-c66d-46ab-8fec-18f9314589f8/embed)** ![Kyle's cool map](images/Treecover_Map.PNG)
 
@@ -50,9 +50,9 @@ Overall this tutorial is a great way to create maps with simple geometric operat
 
 
 ### Objective 
-Having greenspace and treecover, particularly in urban communities, can provide many benefits that grey infrastructure can't provide such as inhibiting the impacts of the Urban Heat Island Effect, absorbing pollutants, and reducing the risk of flooding and erosion (Hebbert and Jankovi, 2011; Burger et al., 2017). In addition they can provide mental and physical health benefits to residents who in live in areas with these spaces (Wolch et al., 2014; Sallis and Ganz, 2009). 
+Having green space and treecover, particularly in urban communities, can provide many benefits that grey infrastructure can't provide such as inhibiting the impacts of the Urban Heat Island Effect, absorbing pollutants, and reducing the risk of flooding and erosion (Hebbert and Jankovi, 2011; Burger et al., 2017). In addition they can provide mental and physical health benefits to residents who in live in areas with these spaces (Wolch et al., 2014; Sallis and Ganz, 2009). 
 
-However studies show that spaces disproportionately lie within communities that are white and affluent (Boone at al., 2009; Wolch et al., 2014). Through this tutorial the objective is to see if it appears through visualization that this is the case in Worcester as well. In order to do this, the tutorial will lead the user to create layers that show the prescence of greenspace in non-Environmental Justice neighborhoods and Environmental Justice neighborhoods. Well what is an Environmental Justice neighborhood? An [Environmental Justice Neighborhood](https://docs.digital.mass.gov/dataset/massgis-data-2010-us-census-environmental-justice-populations) as defined by the Massachusetts Executive Office of Energy and and Environmental Affairs has to fulfill one of the following criteria at the Census Block Group (CBG) level:
+However studies show that spaces disproportionately lie within communities that are white and affluent (Boone at al., 2009; Wolch et al., 2014). Through this tutorial the objective is to see if it appears through visualization that this is the case in Worcester as well. In order to do this, the tutorial will lead the user to create layers that show the prescence of green space in non-Environmental Justice neighborhoods and Environmental Justice neighborhoods. Well what is an Environmental Justice neighborhood? An [Environmental Justice Neighborhood](https://docs.digital.mass.gov/dataset/massgis-data-2010-us-census-environmental-justice-populations) as defined by the Massachusetts Executive Office of Energy and and Environmental Affairs has to fulfill one of the following criteria at the Census Block Group (CBG) level:
 
 1. Have a minority population that is >= 25% as of 2010.
 
@@ -60,7 +60,7 @@ However studies show that spaces disproportionately lie within communities that 
 
 3. Have >= 25% of households that are English isolated, meaning there's no one in a household over 14 who speaks only English or doesn't speak English at home but overall speaks it very well as of 2010.
 
-In addition to comparing greenspace distribution in Environmental Justice neigbhorhoods and non-Enviornmental Justice neighborhoods this tutorial will also show how to compare greenspace distribution in Environmental Justice neighborhoods that satisfy all three criteria, and Environmental Justice neighborhoods that satisfy only some criteria. Lastly, it is also important to note that these qualifications for Environmental Justice neighborhoods are only used for CBGs in Massachusetts.
+In addition to comparing green space distribution in Environmental Justice neigbhorhoods and non-Enviornmental Justice neighborhoods this tutorial will also show how to compare green space distribution in Environmental Justice neighborhoods that satisfy all three criteria, and Environmental Justice neighborhoods that satisfy only some criteria. Lastly, it is also important to note that these qualifications for Environmental Justice neighborhoods are only used for CBGs in Massachusetts.
 
 ### Data Needed for this Lab
 All the data needed is availabe in the data folder of this repo, but if you would like to see where it came from the links are attached.
@@ -69,7 +69,7 @@ All the data needed is availabe in the data folder of this repo, but if you woul
 
 2. Environmental Justice CBG (EJ_POLY.shp): The data is available at this [link](https://docs.digital.mass.gov/dataset/massgis-data-2010-us-census-environmental-justice-populations) and contains all the Environmental Justice CBGs within Massachusetts. 
 
-3. Greenspace (OPENSPACE_POLY.shp): The data is available at this [link](https://docs.digital.mass.gov/dataset/massgis-data-protected-and-recreational-openspace) and represents all conservation lands and outdoor recreational facilities. 
+3. Green Space (OPENSPACE_POLY.shp): The data is available at this [link](https://docs.digital.mass.gov/dataset/massgis-data-protected-and-recreational-openspace) and represents all conservation lands and outdoor recreational facilities. 
 
 4. Treecover (UTCWooManualEdits_20150907_AElmes.shp): This shapefile is not available for use. This data was produced by former Clark PhD student Arthur Elemes and represents the treecover in all of Worcester. 
 
@@ -254,9 +254,9 @@ Does your output look like this?
 
 ![Kyle's cool map](images/Worcester_EJ_Plot.PNG) 
 
-Then perfect, you sucessfully created the Worcester_EJ geodataframe.
+Then perfect, you sucessfully created the Worcester_EJ GeoDataFrame.
 
-Even though we have a variable now that contains Environmental Justice CBGs in Worcester, there's still more we need to do. We don't just want to compare greenspace in Enivronmental Justice CBGs and Non-Environmental CBGs, we also want to see how greenspace in Worcester compares in Environmental Justice CBGs that fulfill all three criteria, and Environmental Justice CBGs that fulfill some criteria. If you want to see what the criteria are, go back to the Objective section of this tutorial where I list off the three Environmental Justice criteria. So first let's work to create a shapefile that is of Environmental Justice CBGs that fulfill all three criteria, we will do this again through a Select by Attribute. In this code below we simply just select Environmental CBGs within Worcester that satisfy all three criteria, which means we only select those CBGs that have a ```CRIT_CNT``` (short for Criteria Count) that is equal to three.
+Even though we have a variable now that contains Environmental Justice CBGs in Worcester, there's still more we need to do. We don't just want to compare green space in Enivronmental Justice CBGs and Non-Environmental CBGs, we also want to see how green space in Worcester compares in Environmental Justice CBGs that fulfill all three criteria, and Environmental Justice CBGs that fulfill some criteria. If you want to see what the criteria are, go back to the Objective section of this tutorial where I list off the three Environmental Justice criteria. So first let's work to create a shapefile that is of Environmental Justice CBGs that fulfill all three criteria, we will do this again through a Select by Attribute. In this code below we simply just select Environmental CBGs within Worcester that satisfy all three criteria, which means we only select those CBGs that have a ```CRIT_CNT``` (short for Criteria Count) that is equal to three.
 
 ```Python
 # From Worcester Environmental Justice Block Group file select by attribute to select Block Groups with all three criteria.
@@ -281,7 +281,7 @@ Now we want to work towards creating a shapefile of Environmental Justice CBGs i
 Worcester_EJ_some = Worcester_EJ[Worcester_EJ['CRIT_CNT']<3] # Within CRIT_CNT column of attribute select block groups with a value less than 3.
 ```
 
-Again type in the following code to create a map of your geodataframe.
+Again type in the following code to create a map of your GeoDataFrame.
 
 ```Python
 # Create a map of Worcester Environmental Justice CBGs that fulfill some criteria
@@ -291,14 +291,14 @@ Your output should look like this.
 
 ![Kyle's cool map](images/Worcester_EJ_some_Plot.PNG)
 
-Next we want to create geodataframes that contain data of greenspace exclusively in Worcester. We can do this with a Clip. First let's clip ```greenspace``` within Worcester by typing the following code. 
+Next we want to create GeoDataFrames that contain data of green space exclusively in Worcester. We can do this with a Clip. First let's clip ```greenspace``` within Worcester by typing the following code. 
 
 ```Python
 # Clip greenspace within Worcester
 Worcester_greenspace = gpd.clip(greenspace, Worcester)
 ```
 
-Type the code below to see what the geodataframe looks like mapped.
+Type the code below to see what the GeoDataFrame looks like mapped.
 
 ```Python
 # Create a map of Worcester greenspace
@@ -308,14 +308,14 @@ It should look like this.
 
 ![Kyle's cool map](images/Worcester_greenspace_plot.PNG)
 
-Now we have a geodataframe of greenspace within the Worcester city limits. In our final maps though we want to see where are the greensapces that fall within Worcester EJ CBGs that fulfill some or all criteria. Next let's create a geodataframe of greenspace that fall within Worcester EJ CBGs that fulfill all criteria.
+Now we have a GeoDataFrame of green space within the Worcester city limits. In our final maps though we want to see where are the green space that fall within Worcester EJ CBGs that fulfill some or all criteria. Next let's create a GeoDataFrame of green space that fall within Worcester EJ CBGs that fulfill all criteria.
 
 ```Python
 # Clip the Worcester greenspace file within the Worcester Environmental Justice block groups with all criteria file
 Worcester_EJ_all_greenspace = gpd.clip(Worcester_greenspace, Worcester_EJ_all)
 ```
 
-Type the code below to see what the geodataframe looks like mapped.
+Type the code below to see what the GeoDataFrame looks like mapped.
 
 ```Python
 # Create a map of Worcester greenspace that's within Environmental Justice block groups with all criteria
@@ -326,14 +326,14 @@ It should look like this.
 
 ![Kyle's cool map](images/Worcester_EJ_all_greenspace_Plot.PNG)
 
-Now we'll create a geodataframe of greenspaces within Worcester EJ CBGs that only fulfill some criteria.
+Now we'll create a GeoDataFrame of green spaces within Worcester EJ CBGs that only fulfill some criteria.
 
 ```Python
 # Clip the Worcester greenspace file within the Worcester Environmental Justice block groups with some criteria file
 Worcester_EJ_some_greenspace = gpd.clip(Worcester_greenspace, Worcester_EJ_some)
 ```
 
-Type the code below to see what the geodataframe looks like mapped.
+Type the code below to see what the GeoDataFrame looks like mapped.
 ```Python
 # Create a map of Worcester greenspace that's within Environmental Justice block groups with some criteria
 Worcester_EJ_some_greenspace.plot(column='TOWN_ID', color='grey', figsize=(16,8));
@@ -342,13 +342,13 @@ It should look like this.
 
 ![Kyle's cool map](images/Worcester_EJ_some_greenspace_Plot.PNG)
 
-Lastly, we want to create a geodataframe that contains of Worcester greenspace that is not within an EJ CBG, regardless of how many criteria it has. To do this type the following code.
+Lastly, we want to create a GeoDataFrame that contains of Worcester green space that is not within an EJ CBG, regardless of how many criteria it has. To do this type the following code.
 
 ```Python
 # Erase Worcester greenspace within areas that Worcester Environmental Justice block groups are in
 Worcester_greenspace_NonEJ = gpd.overlay(Worcester_greenspace, Worcester_EJ, how = 'difference')
 ```
-One last time, type the code below to see what the geodataframe looks like mapped.
+One last time, type the code below to see what the GeoDataFrame looks like mapped.
 
 ```Python
 # Create a map of Worcester greenspace that's not within an Environmental Justice block group
@@ -358,7 +358,7 @@ The output should look like this.
 
 ![Kyle's cool map](images/Worcester_nonEJ_greenspace.PNG)
 
-If all the outputs for the geodatagrames created look correct, we are now done with creating geodataframes. When I initally created this tutorial I was hopeful that I could clip the treecover data within the EJ CBGs with all and some criteria, but unfortunately by Google Colab crashed multiple times when trying to do so :(. So instead, I just ended up showing the projected tree_cover data in a Carto data, however the code below shows how I would have clipped the tree_cover data had it worked. 
+If all the outputs for the GeoDataFrames created look correct, we are now done with creating GeoDataFrames. When I initally created this tutorial I was hopeful that I could clip the treecover data within the EJ CBGs with all and some criteria, but unfortunately by Google Colab crashed multiple times when trying to do so :(. So instead, I just ended up showing the projected tree_cover data in a Carto data, however the code below shows how I would have clipped the tree_cover data had it worked. 
 
 ```Python
 # Code to clip treecover within the Worcester Environmental Justice block groups file
@@ -381,7 +381,7 @@ Worcester_treecover_NonEJ = gpd.overlay(Worcester_greenspace, Worcester_EJ, how 
 '''
 ```
 
-Next we need to convert all the geodataframes that we created and want to use in our Carto map to shapefiles. Note that if you decide to use very fine/detailed data or data that is large like I did with treecover this process could take some time. For me with the treecover data it took about 30 minutes.
+Next we need to convert all the GeoDataFrames that we created and want to use in our Carto map to shapefiles. Note that if you decide to use very fine/detailed data or data that is large like I did with treecover this process could take some time. For me with the treecover data it took about 30 minutes.
 
 
 ```Python
