@@ -20,7 +20,7 @@ With this tutorial we will not exceed these limits however if you made maps befo
 
 ### Background on the GeoPandas Library for the Tutorial
 
-GeoPandas is a library that is an extension of the Pandas library (a library with functions similar to Excel). However, unlike Pandas, GeoPandas can perform spatial operations on geometric files. GeoPandas has these operations performed from the Shapely package. In addition, to perform the operations needed for this tutorial GeoPandas relies on the libraries rtree and spatial index as dependencies, meaning it depends on those packages to run. The GeoPandas operations that will be used for this tutorial are explained in the following section.
+[GeoPandas](https://geopandas.org/) is a library that is an extension of the Pandas library (a library with functions similar to Excel). However, unlike Pandas, GeoPandas can perform spatial operations on geometric files. GeoPandas has these operations performed from the Shapely package. In addition, to perform the operations needed for this tutorial GeoPandas relies on the libraries rtree and spatial index as dependencies, meaning it depends on those packages to run. The GeoPandas operations that will be used for this tutorial are explained in the following section.
 
 ## Introduction to the Tutorial
 For this tutorial you will learn how to use the GeoPandas library in Python to create a few different maps within Carto that shows the presence of green space within Worcester, and how the presence of green space varies in Worcester Census Block Groups (CBGs) that are deemed Environmental Justice  with all criteria, Environmental Justice with some criteria and CBGs that are not deemed Environmental Justice. Keep reading to learn what an Environmental Justice CBG with some or all criteria are. 
@@ -50,9 +50,9 @@ Overall this tutorial is a great way to create maps with simple geometric operat
 
 
 ### Objective 
-Having green space and treecover, particularly in urban communities, can provide many benefits that grey infrastructure can't provide such as inhibiting the impacts of the Urban Heat Island Effect, absorbing pollutants, and reducing the risk of flooding and erosion (Hebbert and Jankovi, 2011; Burger et al., 2017). In addition they can provide mental and physical health benefits to residents who in live in areas with these spaces (Wolch et al., 2014; Sallis and Ganz, 2009). 
+Having green space and treecover, particularly in urban communities, can provide many benefits that grey infrastructure can't provide such as inhibiting the impacts of the Urban Heat Island Effect, absorbing pollutants, and reducing the risk of flooding and erosion (Hebbert and Jankovi, 2011; Burger et al., 2017). In addition, they can provide mental and physical health benefits to residents who in live in areas with these spaces (Wolch et al., 2014; Sallis and Ganz, 2009). 
 
-However studies show that spaces disproportionately lie within communities that are white and affluent (Boone at al., 2009; Wolch et al., 2014). Through this tutorial the objective is to see if it appears through visualization that this is the case in Worcester as well. In order to do this, the tutorial will lead the user to create layers that show the prescence of green space in non-Environmental Justice neighborhoods and Environmental Justice neighborhoods. Well what is an Environmental Justice neighborhood? An [Environmental Justice Neighborhood](https://docs.digital.mass.gov/dataset/massgis-data-2010-us-census-environmental-justice-populations) as defined by the Massachusetts Executive Office of Energy and and Environmental Affairs has to fulfill one of the following criteria at the Census Block Group (CBG) level:
+However, studies show that spaces disproportionately lie within communities that are white and affluent (Boone at al., 2009; Wolch et al., 2014). Through this tutorial the objective is to see if it appears through visualization that this is the case in Worcester as well. To do this, the tutorial will lead the user to create layers that show the presence of green space in non-Environmental Justice CBGs and Environmental Justice CBGs. Well what is an Environmental Justice neighborhood? An [Environmental Justice Neighborhood](https://docs.digital.mass.gov/dataset/massgis-data-2010-us-census-environmental-justice-populations) as defined by the Massachusetts Executive Office of Energy and Environmental Affairs has to fulfill one or more of the following criteria:
 
 1. Have a minority population that is >= 25% as of 2010.
 
@@ -60,10 +60,10 @@ However studies show that spaces disproportionately lie within communities that 
 
 3. Have >= 25% of households that are English isolated, meaning there's no one in a household over 14 who speaks only English or doesn't speak English at home but overall speaks it very well as of 2010.
 
-In addition to comparing green space distribution in Environmental Justice neigbhorhoods and non-Enviornmental Justice neighborhoods this tutorial will also show how to compare green space distribution in Environmental Justice neighborhoods that satisfy all three criteria, and Environmental Justice neighborhoods that satisfy only some criteria. Lastly, it is also important to note that these qualifications for Environmental Justice neighborhoods are only used for CBGs in Massachusetts.
+In addition to comparing green space distribution in Environmental Justice CBGs and non-Environmental Justice CBGs this tutorial will also show how to compare green space distribution in Environmental Justice CBGs that satisfy all three criteria, and Environmental Justice CBGs that satisfy only some criteria. Lastly, it is also important to note that these qualifications for Environmental Justice CBGs are only used for CBGs in Massachusetts.
 
 ### Data Needed for this Lab
-All the data needed is availabe in the data folder of this repo, but if you would like to see where it came from the links are attached.
+All the data needed is available in the data folder of this repo, but if you would like to see where it came from the links are attached.
 
 1. Massachusetts Towns(CENSUS2010TOWNS_POLY.shp): The data is available at this [link](https://docs.digital.mass.gov/dataset/massgis-data-datalayers-2010-us-census) and contains all the 351 towns of Massachusetts.
 
@@ -94,7 +94,7 @@ from shapely import wkt  # stands for "well known text," allows for the intercha
 ```
 
 
-Next you will want to organize the data. I recommend creating a folder called Worcester_EJ_Greenspace as I did, and then create an input folder within the Worcester_EJ_GreenSpace folder. In addition, create the following folders within the Worcester_EJ_GreenSpace folder, 'Worcester', 'Worcester_EJ_all', 'Worcester_EJ_some', 'Worcester_EJ_all_greenspace', 'Worcester_EJ_some_greenspace', and 'Worcester_greenspace_NonEJ'. I will explain in Part 3 why you need all of these folders. If you're using Colab, before inputting the data you need to write the following code to connect Colab to your Drive.
+Next you will want to organize the data. I recommend creating a folder called Worcester_EJ_Greenspace as I did, and then create a folder called 'input' folder within the Worcester_EJ_GreenSpace folder. In addition, create the following folders within the Worcester_EJ_GreenSpace folder, 'Worcester', 'Worcester_EJ_all', 'Worcester_EJ_some', 'Worcester_EJ_all_greenspace', 'Worcester_EJ_some_greenspace', and 'Worcester_greenspace_NonEJ'. I will explain in Part 3 why you need all of these folders. If you're using Colab, before inputting the data you need to write the following code to connect Colab to your Drive.
 
 ```Python
 from google.colab import drive
@@ -103,7 +103,7 @@ root_path = 'gdrive/My Drive/Worcester_EJ_GreenSpace/' # set root path to folder
 ```
 
 
-Once Colab is connected to your Drive type in the following code. Again please note that if you are NOT using Colab you should NOT use this exact code to connect to your input data. Also, for anyone, don't attempt to download the tree_cover data, I am only including it to show you how I used this specific data to include in a Carto map. If there is data that I did not provide that you would like to use feel free to import it.
+Once Colab is connected to your Drive type in the following code. Again, please note that if you are NOT using Colab you should NOT use this exact code to connect to your input data. Also, for anyone, don't attempt to download the tree_cover data, I am only including it to show you how I used this specific data to include in a Carto map. If there is data that I did not provide that you would like to use feel free to import it.
 
 ```Python
 # Import shapefiles
@@ -114,7 +114,7 @@ tree_cover = gpd.read_file(root_path+'input/UTCWooManualEdits_20150907_AElmes.sh
 ```
 
 ### Part 2 (Checking Shapefile Projection and Reprojecting Data)
-For data to be used in Cato they all need to have the WGS 1984 Coordinate Reference System (CRS). However, we don't know what the coordinate reference system of our data is just from simply downloading it. Luckily, there is a way to check the CRS. First let's check the CRS of ```environmentaljustice```. To do this type the following code.
+For data to be used in Carto they all need to have the WGS 1984 Coordinate Reference System (CRS). However, we don't know what the CRS of our data is just from simply downloading it. Luckily, there is a way to check the CRS. First let's check the CRS of ```environmentaljustice```. To do this type the following code.
 
 ```Python
 # Check the Coordinate Reference System of environmentaljustice
@@ -140,7 +140,7 @@ For this treecover data I'm only doing this because I have the data. If you deci
 tree_cover.crs
 ```
 
-You should see that none of the data has the CRS we need to upload to Carto. This means we will need to project it to the WGS 1984 CRS. First we will reproject the  ```environmentaljustice``` by typing the following code.
+You should see that none of the data has the CRS we need to upload to Carto. This means we will need to project it to the WGS 1984 CRS. First we will reproject  ```environmentaljustice``` by typing the following code.
 
 ```Python
 # Project environmentaljustice to the WGS 1984 CRS
@@ -186,7 +186,7 @@ greenspace.crs
 towns.crs
 ```
 
-This is what I did to check to make sure I had the correct projection for the tree_cover data
+This is what I did to check to make sure I had the correct projection for the tree_cover data.
 
 ```Python
 # Check the new Coordinate Reference System to tree_cover
@@ -195,7 +195,7 @@ tree_cover.crs
 
 ### Part 3 (Create new shapefiles)
 
-Now that we have all our data in the correct CRS, let's start creating new shapefiles. First we are going to perform a select by attribute in our towns data, where we will select WORCESTER. In the code below I am selecting within the towns attribute file, an item in the TOWN column that are Worcester, which in other words means that of all the Massachusetts towns I'm only selecting Worcester for my new shapefile. While ```Worcester``` is not yet a shapefile, I will show later on in this section how to convert it to a shapefile. Keep in mind if you would like you can do another Massachusetts town, just be sure you type it in all caps like WORCESTER is below.
+Now that we have all our data in the correct CRS, let's start creating new shapefiles. First, we are going to perform a select by attribute in our towns data, where we will select WORCESTER. In the code below I am selecting within the towns attribute file, an item in the TOWN column that are Worcester, which in other words means that of all the Massachusetts towns I'm only selecting Worcester for my new shapefile. While ```Worcester``` is not yet a shapefile, I will show later in this section how to convert it to a shapefile. Keep in mind if you would like you can do this with another Massachusetts town, just be sure you type it in all caps like with WORCESTER below.
 
 
 ```Python
@@ -236,7 +236,7 @@ Does your ouput look like this?
 
 If it does great! That polygon is of the city of Worcester. If your output doesn't look like that, go back and make sure that you did all of the prior steps correctly. For the rest of the tutorial I'll show you how to do this with the other GeoDataFrames we create. While it may overall seem tedious and a little time-consuming to do, it will be very useful to do to ensure that our GeoDataFrames are correct before converting them to shapefiles and placing them into Carto.
 
-Next we want to take the Environmental Justice CBG shapefile and do a Select by Attribute again. Just like with the towns data we will select items in the TOWNS column that is Worcester, which means we will select Environmental Justice CBGs that are in Worcester to create a new shapefile these types of CBGs that are solely within Worcester.
+Next we want to take the Environmental Justice CBG shapefile and do a Select by Attribute again. Just like with the towns data we will select items in the TOWNS column that is Worcester, which means we will select Environmental Justice CBGs that are in Worcester to create a new GeoDataFrame of these types of CBGs that are solely within Worcester.
 
 ```Python
 # From Environmental Justice Block group file select by attribute to get Worcester
@@ -256,7 +256,7 @@ Does your output look like this?
 
 Then perfect, you sucessfully created the Worcester_EJ GeoDataFrame.
 
-Even though we have a variable now that contains Environmental Justice CBGs in Worcester, there's still more we need to do. We don't just want to compare green space in Enivronmental Justice CBGs and Non-Environmental CBGs, we also want to see how green space in Worcester compares in Environmental Justice CBGs that fulfill all three criteria, and Environmental Justice CBGs that fulfill some criteria. If you want to see what the criteria are, go back to the Objective section of this tutorial where I list off the three Environmental Justice criteria. So first let's work to create a shapefile that is of Environmental Justice CBGs that fulfill all three criteria, we will do this again through a Select by Attribute. In this code below we simply just select Environmental CBGs within Worcester that satisfy all three criteria, which means we only select those CBGs that have a ```CRIT_CNT``` (short for Criteria Count) that is equal to three.
+Even though we have a GeoDataFrame now that contains Environmental Justice CBGs in Worcester, there's still more we need to do. We don't just want to compare green space in Environmental Justice CBGs and Non-Environmental CBGs, we also want to see how green space in Worcester compares in Environmental Justice CBGs that fulfill all three criteria, and Environmental Justice CBGs that fulfill some criteria. If you want to see what the criteria are, go back to the Objective section of this tutorial where I list off the three Environmental Justice criteria. So first let's work to create a shapefile that is of Environmental Justice CBGs that fulfill all three criteria, we will do this again through a Select by Attribute. In this code below we simply just select Environmental CBGs within Worcester that satisfy all three criteria, which means we only select those CBGs that have a ```CRIT_CNT``` (short for Criteria Count) that is equal to three.
 
 ```Python
 # From Worcester Environmental Justice Block Group file select by attribute to select Block Groups with all three criteria.
@@ -308,7 +308,7 @@ It should look like this.
 
 ![Kyle's cool map](images/Worcester_greenspace_plot.PNG)
 
-Now we have a GeoDataFrame of green space within the Worcester city limits. In our final maps though we want to see where are the green space that fall within Worcester EJ CBGs that fulfill some or all criteria. Next let's create a GeoDataFrame of green space that fall within Worcester EJ CBGs that fulfill all criteria.
+Now we have a GeoDataFrame of green space within the Worcester city limits. In our final maps though we want to see where are the green space thats fall within Worcester EJ CBGs that fulfill some or all criteria. Next let's create a GeoDataFrame of green space that fall within Worcester EJ CBGs that fulfill all criteria.
 
 ```Python
 # Clip the Worcester greenspace file within the Worcester Environmental Justice block groups with all criteria file
@@ -358,7 +358,7 @@ The output should look like this.
 
 ![Kyle's cool map](images/Worcester_nonEJ_greenspace.PNG)
 
-If all the outputs for the GeoDataFrames created look correct, we are now done with creating GeoDataFrames. When I initally created this tutorial I was hopeful that I could clip the treecover data within the EJ CBGs with all and some criteria, but unfortunately by Google Colab crashed multiple times when trying to do so :(. So instead, I just ended up showing the projected tree_cover data in a Carto data, however the code below shows how I would have clipped the tree_cover data had it worked. 
+If all the outputs for the GeoDataFrames created look correct, we are now done with creating GeoDataFrames. When I initially created this tutorial I was hopeful that I could clip the treecover data within the EJ CBGs with all and some criteria, but unfortunately by Google Colab crashed multiple times when trying to do so :(. So instead, I just ended up showing the projected tree_cover data in a Carto data, however the code below shows how I would have clipped the tree_cover data had it worked. 
 
 ```Python
 # Code to clip treecover within the Worcester Environmental Justice block groups file
@@ -462,7 +462,7 @@ Now that we have a shapefile we should copy the shapefile components to an ouput
 
 Once you copy the shapefile components to Google Drive, you should download each folder that you put outputs in. Once you download these Zip files you don't need to unzip as you can just upload them to Carto as a Zip file. The name of folder that you download from Google Drive then upload to Colab should have the same name as the shapefile components that are within the folder. If you are not doing this with Colab make sure that your output folder is Zipped before uploading it to Carto. 
 
-Once you log onto Carto go to your Dashboard and click on the blue button that says 'New Map', then click 'Create Empty Map'. Once you click that button you will have an empty map. The first map we will creater will show the locations of the Worcester Environmental Justice CBGs that fulfill all criteria, and the Environmental Justcie CBGs that fulfill only some of the criteria. First edit the title of this map by clicking the name of the map in the top left corner, and call it 'Worcester EJ Map'. Next, we want to download the 'Worcester.shp' file. To do this click 'Add New Layer', and then upload the zip file called 'Worcester'.
+Once you log onto Carto go to your Dashboard and click on the blue button that says 'New Map', then click 'Create Empty Map'. Once you click that button you will have an empty map. The first map we will create will show the locations of the Worcester Environmental Justice CBGs that fulfill all criteria, and the Environmental Justice CBGs that fulfill only some of the criteria. First edit the title of this map by clicking the name of the map in the top left corner and call it 'Worcester EJ Map'. Next, we want to download the 'Worcester.shp' file. To do this click 'Add New Layer', and then upload the zip file called 'Worcester'.
 
 Click on the three dots next to the layer name and click 'Edit layer'. Next, click on the Style tab and change the Stroke size to 5. Next, change the colors and transparencies of the polygon and stroke to what is shown below.
 
@@ -482,7 +482,7 @@ Once these data are uploaded let's make the following edits to the Worcester_EJ_
 
 Then click on the Legend tab, under Select Style click Custom Legend, and then there should be an option to type in the name of the legend item that is already in the color you chose. In the legend type in 'EJ CBG ALL CRITERIA'. 
 
-Now let's do edits for the Worcester_EJ_some data. Again, click on the three circles next to the Worcester_EJ_some data and then click edit layer. Once you do this click on the name of the file at the top and double click on it then type 'Worcester EJ Some Criteria'. Next, click on the Style tab and leave everything as default except for the color and transparency of the polygon. Click on the polygon color line to adjust the colors and transparencies of it to what is shown in the image below. 
+Now let's do edits for the Worcester_EJ_some data. Again, click on the three dots next to the Worcester_EJ_some data and then click edit layer. Once you do this click on the name of the file at the top and double click on it then type 'Worcester EJ Some Criteria'. Next, click on the Style tab and leave everything as default except for the color and transparency of the polygon. Click on the polygon color line to adjust the colors and transparencies of it to what is shown in the image below. 
 
 ![Kyle's cool map](images/Worcester_EJ_some_polygon.PNG)
 
