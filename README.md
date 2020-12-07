@@ -308,7 +308,7 @@ It should look like this.
 
 ![Kyle's cool map](images/Worcester_greenspace_plot.PNG)
 
-Now we have a GeoDataFrame of green space within the Worcester city limits. In our final maps though we want to see where are the green space thats fall within Worcester EJ CBGs that fulfill some or all criteria. Next let's create a GeoDataFrame of green space that fall within Worcester EJ CBGs that fulfill all criteria.
+Now we have a GeoDataFrame of green space within the Worcester city limits. In our final maps though we want to see where is the green space thats fall within Worcester EJ CBGs that fulfill some or all criteria. Next let's create a GeoDataFrame of green space that fall within Worcester EJ CBGs that fulfill all criteria.
 
 ```Python
 # Clip the Worcester greenspace file within the Worcester Environmental Justice block groups with all criteria file
