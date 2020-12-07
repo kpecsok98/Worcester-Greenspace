@@ -58,7 +58,7 @@ However, studies show that spaces disproportionately lie within communities that
 
 2. A 2010 median household income of less than $40,673.
 
-3. Have >= 25% of households that are English isolated, meaning there's no one in a household over 14 who speaks only English or doesn't speak English at home but overall speaks it very well as of 2010.
+3. Have >= 25% of households that are English isolated, meaning there's no one in a household over 14 years of age who speaks only English or doesn't speak English at home but overall speaks it very well as of 2010.
 
 In addition to comparing green space distribution in Environmental Justice CBGs and non-Environmental Justice CBGs this tutorial will also show how to compare green space distribution in Environmental Justice CBGs that satisfy all three criteria, and Environmental Justice CBGs that satisfy only some criteria. Lastly, it is also important to note that these qualifications for Environmental Justice CBGs are only used for CBGs in Massachusetts.
 
@@ -86,7 +86,7 @@ First download all the libraries that will be needed for this lab. **If you are 
 !pip install rtree
 
 # Import the needed packages once they're installed
-import pandas as pd # an interface is provided through this to 
+import pandas as pd # an interface is provided through this library to interact with tabular data
 import geopandas as gpd # combines panda's capabilities with those of shapely to perform geospatial operations
 import rtree # needed for doing the geometric operations with geopandas 
 from shapely.geometry import Point, Polygon, MultiPolygon  # manipulates text data into geospatial shapes
