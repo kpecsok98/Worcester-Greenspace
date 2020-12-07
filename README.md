@@ -78,7 +78,7 @@ All the data needed is unfortunately not available on GitHub because it was too 
 Please note that this tutorial is run on the assumption that the user is using Google Colab. So when connecting the input data and placing the output data, you will need to determine how to do this if you're not using Google Colab. If you're using Google Colab be sure to upload data to your Google Drive.
 
 ### Part 1 (Importing Libraries and Downloading Data)
-First download all the libraries that will be needed for this lab. **If you are not using Colab you may need to install Pandas, if you're using Colab you don't because Pandas is already installed in the Google Colab Environment.**
+First download all the libraries that will be needed for this lab. **If you're not using Colab you may need to install Pandas, if you're using Colab you don't because Pandas is already installed in the Google Colab Environment.**
 ```Python
 # Add the needed packages to Colab Environment
 !pip install geopandas
