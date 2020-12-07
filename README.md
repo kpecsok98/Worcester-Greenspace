@@ -94,7 +94,7 @@ from shapely import wkt  # stands for "well known text," allows for the intercha
 ```
 
 
-Next you will want to organize the data. I recommend creating a folder called Worcester_EJ_Greenspace as I did, and then create a folder called 'input' folder within the Worcester_EJ_GreenSpace folder to input all the datasets you need to start this tutorial, which are the shapefile components of 'CENSUS2010TOWNS_POLY', 'EJ_POLY', and 'OPENSPACE_POLY'. In addition, create the following folders within the Worcester_EJ_GreenSpace folder, 'Worcester', 'Worcester_EJ_all', 'Worcester_EJ_some', 'Worcester_EJ_all_greenspace', 'Worcester_EJ_some_greenspace', and 'Worcester_greenspace_NonEJ'. I will explain in Part 3 why you need all of these folders. If you're using Colab, before inputting the data you need to write the following code to connect Colab to your Drive.
+Next you will want to organize the data. I recommend creating a folder called Worcester_EJ_Greenspace as I did, with EJ being short for Environmental Justice, and then create a folder called 'input' folder within the Worcester_EJ_GreenSpace folder to input all the datasets you need to start this tutorial, which are the shapefile components of 'CENSUS2010TOWNS_POLY', 'EJ_POLY', and 'OPENSPACE_POLY'. In addition, create the following folders within the Worcester_EJ_GreenSpace folder, 'Worcester', 'Worcester_EJ_all', 'Worcester_EJ_some', 'Worcester_EJ_all_greenspace', 'Worcester_EJ_some_greenspace', and 'Worcester_greenspace_NonEJ'. I will explain in Part 3 why you need all of these folders. If you're using Colab, before inputting the data you need to write the following code to connect Colab to your Drive.
 
 ```Python
 from google.colab import drive
