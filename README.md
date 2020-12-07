@@ -25,7 +25,7 @@ With this tutorial we will not exceed these limits however if you made maps befo
 ## Introduction to the Tutorial
 For this tutorial you will learn how to use the GeoPandas library in Python to create a few different maps within Carto that shows the presence of green space within Worcester, and how the presence of green space varies in Worcester Census Block Groups (CBGs) that are deemed Environmental Justice  with all criteria, Environmental Justice with some criteria and CBGs that are not deemed Environmental Justice. Keep reading to learn what an Environmental Justice CBG with some or all criteria are. 
 
-Below are the following maps that will be created for this tutorial. If you wish to view these maps on Carto there is a link next to each image, which will send you to Carto to show an interactive version of that map. This is very helpful in allowing viewers to examine where in Worcester green space, Environmental Justice CBGs are, and where Worcester green space is located within Environmental Justice CBGs. Using Carto is a great way to look interactively look at the locations of the shapefiles based on street and landmarks, for instance through this map I can zoom in and see which CBGs surrounding Clark University (my institution) considered Environmental Justice CBGs. You will notice that thought at in addition I have a map showing tree cover in Worcester. This was a map that I created using Worcester treecover data, however this data is not allowed for public use so I will not be sharing it, but if you are interested in seeing how I got the treecover data into this Carto Map, I will have a section explaining this. Perhaps if you want to add additional data to your map that I didn't include, it could potentially be helpful to review the treecover section.
+Below are the following maps that will be created for this tutorial. If you wish to view these maps on Carto there is a link next to each image, which will send you to Carto to show an interactive version of that map. This is very helpful in allowing viewers to examine where in Worcester green space, Environmental Justice CBGs are, and where Worcester green space is located within Environmental Justice CBGs. Using Carto is a great way to look interactively look at the locations of the shapefiles based on street and landmarks, for instance through this map I can zoom in and see which CBGs surrounding Clark University (my institution) considered Environmental Justice CBGs. You will notice that thought at in addition I have a map showing tree cover in Worcester. This was a map that I created using Worcester tree cover data, however this data is not allowed for public use so I will not be sharing it, but if you are interested in seeing how I got the tree cover data into this Carto Map, I will have a section explaining this. Perhaps if you want to add additional data to your map that I didn't include, it could potentially be helpful to review the tree cover section.
 
 While the maps I made were intended specifically for Worcester, you can do these maps for any town in Massachusetts with the data I provided. In the instructions of this tutorial I will explain how you can choose to do a different Massachusetts town. Here are the maps below:
 
@@ -33,10 +33,10 @@ While the maps I made were intended specifically for Worcester, you can do these
 
 **[Worcester Green Space Map](https://kpecsok98.carto.com/builder/c70eedb3-c9cf-47bf-8a6e-a16cd3b029b4/embed)** ![Kyle's cool map](images/Greenspace_Map.PNG)
 
-**[Worcester Treecover Map](https://kpecsok98.carto.com/builder/42b670c2-c66d-46ab-8fec-18f9314589f8/embed)** ![Kyle's cool map](images/Treecover_Map.PNG)
+**[Worcester Tree Cover Map](https://kpecsok98.carto.com/builder/42b670c2-c66d-46ab-8fec-18f9314589f8/embed)** ![Kyle's cool map](images/Treecover_Map.PNG)
 
 
-In this tutorial you will learn to do the following operations with the geopandas library:
+In this tutorial you will learn to do the following operations with the GeoPandas library:
 
 **Project**: Switch the Coordinate Reference System (CRS) of a shapefile. To see where I figure out how to do this with GeoPandas, click on this [link](https://geopandas.org/projections.html).
 
@@ -50,7 +50,7 @@ Overall this tutorial is a great way to create maps with simple geometric operat
 
 
 ### Objective 
-Having green space and treecover, particularly in urban communities, can provide many benefits that grey infrastructure can't provide such as inhibiting the impacts of the Urban Heat Island Effect, absorbing pollutants, and reducing the risk of flooding and erosion (Hebbert and Jankovi, 2011; Burger et al., 2017). In addition, they can provide mental and physical health benefits to residents who in live in areas with these spaces (Wolch et al., 2014; Sallis and Ganz, 2009). 
+Having green space and tree cover, particularly in urban communities, can provide many benefits that grey infrastructure can't provide such as inhibiting the impacts of the Urban Heat Island Effect, absorbing pollutants, and reducing the risk of flooding and erosion (Hebbert and Jankovi, 2011; Burger et al., 2017). In addition, they can provide mental and physical health benefits to residents who in live in areas with these spaces (Wolch et al., 2014; Sallis and Ganz, 2009). 
 
 However, studies show that spaces disproportionately lie within communities that are white and affluent (Boone at al., 2009; Wolch et al., 2014). Through this tutorial the objective is to see if it appears through visualization that this is the case in Worcester as well. To do this, the tutorial will lead the user to create layers that show the presence of green space in non-Environmental Justice CBGs and Environmental Justice CBGs. Well what is an Environmental Justice neighborhood? An [Environmental Justice Neighborhood](https://docs.digital.mass.gov/dataset/massgis-data-2010-us-census-environmental-justice-populations) as defined by the Massachusetts Executive Office of Energy and Environmental Affairs has to fulfill one or more of the following criteria:
 
@@ -71,14 +71,14 @@ All the data needed is available in the data folder of this repo, but if you wou
 
 3. Green Space (OPENSPACE_POLY.shp): The data is available at this [link](https://docs.digital.mass.gov/dataset/massgis-data-protected-and-recreational-openspace) and represents all conservation lands and outdoor recreational facilities. 
 
-4. Treecover (UTCWooManualEdits_20150907_AElmes.shp): This shapefile is not available for use. This data was produced by former Clark PhD student Arthur Elemes and represents the treecover in all of Worcester. 
+4. Tree Cover (UTCWooManualEdits_20150907_AElmes.shp): This shapefile is not available for use. This data was produced by former Clark PhD student Arthur Elemes and represents the tree cover in all of Worcester. 
 
 
 ## Tutorial
 Please note that this tutorial is run on the assumption that the user is using Google Colab. So when connecting the input data and placing the output data, you will need to determine how to do this if you're not using Google Colab. If you're using Google Colab be sure to upload data to your Google Drive.
 
 ### Part 1 (Importing Libraries and Downloading Data)
-First download all the libraries that will be needed for this lab. **If you are not using Colab you may need to install pandas, if you're using Colab you don't because Pandas is already installed in the Google Colab Environment.**
+First download all the libraries that will be needed for this lab. **If you are not using Colab you may need to install Pandas, if you're using Colab you don't because Pandas is already installed in the Google Colab Environment.**
 ```Python
 # Add the needed packages to Colab Environment
 !pip install geopandas
@@ -358,39 +358,39 @@ The output should look like this.
 
 ![Kyle's cool map](images/Worcester_nonEJ_greenspace.PNG)
 
-If all the outputs for the GeoDataFrames created look correct, we are now done with creating GeoDataFrames. When I initially created this tutorial I was hopeful that I could clip the treecover data within the EJ CBGs with all and some criteria, but unfortunately by Google Colab crashed multiple times when trying to do so :(. So instead, I just ended up showing the projected tree_cover data in a Carto data, however the code below shows how I would have clipped the tree_cover data had it worked. 
+If all the outputs for the GeoDataFrames created look correct, we are now done with creating GeoDataFrames. When I initially created this tutorial I was hopeful that I could clip the tree cover data within the EJ CBGs with all and some criteria, but unfortunately by Google Colab crashed multiple times when trying to do so :(. So instead, I just ended up showing the projected tree_cover data in a Carto data, however the code below shows how I would have clipped the tree_cover data had it worked. 
 
 ```Python
 # Code to clip treecover within the Worcester Environmental Justice block groups file
 '''
-Worcester_EJ_all_treecover = gdp.clip(Worcester_treecover, Worcester_EJ_all)
+Worcester_EJ_all_treecover = gdp.clip(tree_cover, Worcester_EJ_all)
 '''
 ```
 
 ```Python
 # Code to clip Worcester treecover within the Worcester Environmental Justice block groups with some criteria file
 '''
-Worcester_EJ_some_treecover = gdp.clip(Worcester_treecover, Worcester_EJ_some)
+Worcester_EJ_some_treecover = gdp.clip(tree_cover, Worcester_EJ_some)
 '''
 ```
 
 ```Python
 # Code to erase Worcester treecover data that are within the Environmeantl Justice block groups.
 '''
-Worcester_treecover_NonEJ = gpd.overlay(Worcester_greenspace, Worcester_EJ, how = 'difference')
+Worcester_treecover_NonEJ = gpd.overlay(tree_cover, Worcester_EJ, how = 'difference')
 '''
 ```
 
-Next we need to convert all the GeoDataFrames that we created and want to use in our Carto map to shapefiles. Note that if you decide to use very fine/detailed data or data that is large like I did with treecover this process could take some time. For me with the treecover data it took about 30 minutes.
+Next we need to convert all the GeoDataFrames that we created and want to use in our Carto map to shapefiles. Note that if you decide to use very fine/detailed data or data that is large like I did with tree cover this process could take some time. For me with the tree cover data it took about 30 minutes.
 
 
 ```Python
 Worcester.to_file('Worcester.shp') # Shapefile of Worcester
+Worcester_EJ_all_greenspace.to_file('Worcester_EJ_all_greenspace.shp') # Shapefile of greenspace that lies within Worcester EJ  CBGs that fulfill all criteria
 Worcester_EJ_some_greenspace.to_file('Worcester_EJ_some_greenspace.shp') # Shapefile of greenspace that lies within Worcester EJ CBGs that fulfill some criteria
 Worcester_greenspace_NonEJ.to_file('Worcester_greenspace_NonEJ.shp') # Shapefile of greenspace that doesn't lie within Worcester EJ CBGs
 Worcester_EJ_all.to_file('Worcester_EJ_all.shp') # Shapefile of Worcester EJ CBGs that fulfill all criteria
 Worcester_EJ_some.to_file('Worcester_EJ_some.shp') # Shapefile of Worcester EJ CBGs that fulfill some criteria
-Worcester_EJ_all_greenspace.to_file('Worcester_EJ_all_greenspace.shp') # Shapefile of greenspace that lies within Worcester EJ  CBGs that fulfill all criteria
 tree_cover.to_file('tree_cover.shp') # Shapefile of Worcester treecover
 ```
 Now that we have a shapefile we should copy the shapefile components to an ouput folder. In the code the name of the output folder I'm putting a shapefile in is the name as the shapefile. The reason for this is because Carto will take zip files to upload rather than invidual .shp files so it will be easier to organize the data when you upload a Zip folder that has the same name as the shapefile. This is why I asked for all of those folders to be made back in Part 1.
@@ -515,7 +515,7 @@ If you want to check to make sure this maps looks good feel free to look up at t
 Once you have made your maps you can decide whether or not you wish to keep it private or public. If you wish to make it public click Publish in the page of your map and set it to 'Public with Link'. If you have the free version of Carto keep in mind the number of public or private maps you have already produced, since you can only have three of each kind of map with that version of Carto.
 
 #### Creating a Map on Carto with Tree Cover Data (Optional to Follow)
-As mentioned this is data that was not provided for the tutorial, and this is just an explanation of the steps I took to create this map, which I called 'Worcester Treecover Map'. Like with the other maps I created on Carto, the Worcester data was uploaded and I adjusted the color and transparency of this data to be the same as this layer was in the other two maps. Next, I uploaded the treecover data and changed the name of it to Worcester Tree Cover. The images below show how I altered the color of that polygon.
+As mentioned this is data that was not provided for the tutorial, and this is just an explanation of the steps I took to create this map, which I called 'Worcester Tree Cover Map'. Like with the other maps I created on Carto, the Worcester data was uploaded and I adjusted the color and transparency of this data to be the same as this layer was in the other two maps. Next, I uploaded the tree cover data and changed the name of it to Worcester Tree Cover. The images below show how I altered the color of that polygon.
 
 ![Kyle's cool map](images/Worcester_TreeCover_Polygon.PNG)
 
