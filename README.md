@@ -476,7 +476,7 @@ Stroke color and transparency adjustment:
 
 Next we will want to add the 'Worcester_EJ_some' and the 'Worcester_EJ_all' data to Carto, so like with the Worcester data click 'Add New Layer' and upload these two zip files. 
 
-Once these data are uploaded let's make the following edits to the Worcester_EJ_all data on Carto. First on the three circles next to the Worcester_EJ_all data and then click edit layer. Once you do this click on the name of the file at the top and double click on it then type 'Worcester EJ All Criteria'. Next, click on the Style tab and leave everything as default except for the color and transparency of the polygon. Click on the Polygon color line to adjust the colors and transparencies of it to what is shown in the image below. 
+Once these data are uploaded let's make the following edits to the Worcester_EJ_all data on Carto. First, click on the three dots next to the Worcester_EJ_all data and then click edit layer. Once you do this click on the name of the file at the top and double click on it then type 'Worcester EJ All Criteria'. Next, click on the Style tab and leave everything as default except for the color and transparency of the polygon. Click on the Polygon color line to adjust the colors and transparencies of it to what is shown in the image below. 
 
 ![Kyle's cool map](images/Worcester_EJ_all_polygon.PNG)
 
