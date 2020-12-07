@@ -63,7 +63,7 @@ However, studies show that spaces disproportionately lie within communities that
 In addition to comparing green space distribution in Environmental Justice CBGs and non-Environmental Justice CBGs this tutorial will also show how to compare green space distribution in Environmental Justice CBGs that satisfy all three criteria, and Environmental Justice CBGs that satisfy only some criteria. Lastly, it is also important to note that these qualifications for Environmental Justice CBGs are only used for CBGs in Massachusetts.
 
 ### Data Needed for this Lab
-All the data needed is unfortunately not available on GitHub because it was too large to upload, but you can download it from the links attached in the description each set of data needed. You will also notice that 
+All the data needed is unfortunately not available on GitHub because it was too large to upload, but you can download it from the links attached in the description each set of data needed. If you have trouble downloading this data feel free to email me at kpecsok@clarku.edu and I would be happy to send you a ZIP file of the needed data.
 
 1. Massachusetts Towns(CENSUS2010TOWNS_POLY.shp): The data is available at this [link](https://docs.digital.mass.gov/dataset/massgis-data-datalayers-2010-us-census) and contains all the 351 towns of Massachusetts.
 
