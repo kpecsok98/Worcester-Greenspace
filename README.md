@@ -50,7 +50,7 @@ Overall this tutorial is a great way to create maps with simple geometric operat
 
 
 ### Objective 
-Having green space and tree cover, particularly in urban communities, can provide many benefits that grey infrastructure can't provide such as inhibiting the impacts of the Urban Heat Island Effect, absorbing pollutants, and reducing the risk of flooding and erosion (Hebbert and Jankovi, 2011; Burger et al., 2017). In addition, they can provide mental and physical health benefits to residents who in live in areas with these spaces (Wolch et al., 2014). 
+Having green space and tree cover, particularly in urban communities, can provide many benefits that grey infrastructure can't provide such as inhibiting the impacts of the Urban Heat Island Effect, absorbing pollutants, and reducing the risk of flooding and erosion (Hebbert and Jankovi, 2011; Burger et al., 2017). In addition, they can provide mental and physical health benefits to residents who in live in areas with these spaces (Wolch et al., 2014: Sallis and Glanz, 2009). 
 
 However, studies show that spaces disproportionately lie within communities that are white and affluent (Boone at al., 2009; Wolch et al., 2014). Through this tutorial the objective is to see if it appears through visualization that this is the case in Worcester as well. To do this, the tutorial will lead the user to create layers that show the presence of green space in non-Environmental Justice CBGs and Environmental Justice CBGs. Well what is an Environmental Justice CBG? An [Environmental Justice CBG](https://docs.digital.mass.gov/dataset/massgis-data-2010-us-census-environmental-justice-populations) as defined by the Massachusetts Executive Office of Energy and Environmental Affairs has to fulfill one or more of the following criteria:
 
@@ -533,6 +533,8 @@ Boone, C. G., Buckley, G. L., Grove, J. M., & Sister, C. (2009). Parks and peopl
 Burger, J., Davis, V., Franklin, J., Zipper, C., Skousen, J., Barton, C., & Angel, P. (2017). Forest Reclamation Advisories no 6: Tree-Compatible Ground Covers for Reforestation and Erosion Control. (6), 8. Retrieved from https://arri.osmre.gov/FRA/Advisories/Advisories.shtm
 
 Hebbert, M., & Jankovic, V. (2013). Cities and climate change: the precedents and why they matter. Urban Studies, 50(7), 1332–1347. Retrieved from https://doi.org/10.1177/0042098013480970
+
+Sallis, J. F., & Glanz, K. (2009). Physical activity and food environments: solutions to the obesity epidemic. The Milbank Quarterly, 87(1), 123-154. Retreived from https://doi.org/10.1111/j.1468-0009.2009.00550.x
 
 Wolch, J. R., Byrne, J., & Newell, J. P. (2014). Urban green space, public health, and environmental justice: The challenge of making cities “just green enough.” Landscape and Urban Planning, 125, 234–244. https://doi.org/10.1016/j.landurbplan.2014.01.017
 
