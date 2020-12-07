@@ -113,7 +113,7 @@ towns = gpd.read_file(root_path+'input/CENSUS2010TOWNS_POLY.shp') # Shapefile of
 tree_cover = gpd.read_file(root_path+'input/UTCWooManualEdits_20150907_AElmes.shp') # You will not import this shapefile for the tutorial
 ```
 
-### Part 2 (Checking Shapefile Projection and Reprojecting Data)
+### Part 2 (Checking Shapefile Projection and ReProjecting Data)
 For data to be used in Carto they all need to have the WGS 1984 Coordinate Reference System (CRS). However, we don't know what the CRS of our data is just from simply downloading it. Luckily, there is a way to check the CRS. First let's check the CRS of ```environmentaljustice```. To do this type the following code.
 
 ```Python
@@ -393,7 +393,7 @@ Worcester_EJ_all.to_file('Worcester_EJ_all.shp') # Shapefile of Worcester EJ CBG
 Worcester_EJ_some.to_file('Worcester_EJ_some.shp') # Shapefile of Worcester EJ CBGs that fulfill some criteria
 tree_cover.to_file('tree_cover.shp') # Shapefile of Worcester treecover
 ```
-Now that we have a shapefile we should copy the shapefile components to an ouput folder. In the code the name of the output folder I'm putting a shapefile in is the name as the shapefile. The reason for this is because Carto will take zip files to upload rather than invidual .shp files so it will be easier to organize the data when you upload a Zip folder that has the same name as the shapefile. This is why I asked for all of those folders to be made back in Part 1.
+Now that we have a shapefile we should copy the shapefile components to an ouput folder. In the code the name of the output folder I'm putting a shapefile in is the name as the shapefile. The reason for this is because Carto will take ZIP files to upload rather than invidual .shp files so it will be easier to organize the data when you upload a ZIP folder that has the same name as the shapefile. This is why I asked for all of those folders to be made back in Part 1.
 
 ```Python
 # Copy components of shapefile to Google Drive
@@ -460,9 +460,9 @@ Now that we have a shapefile we should copy the shapefile components to an ouput
 
 ### Part 4 (Uploading shapefiles to Carto)
 
-Once you copy the shapefile components to Google Drive, you should download each folder that you put outputs in. Once you download these Zip files you don't need to unzip as you can just upload them to Carto as a Zip file. The name of folder that you download from Google Drive then upload to Colab should have the same name as the shapefile components that are within the folder. If you are not doing this with Colab make sure that your output folder is Zipped before uploading it to Carto. 
+Once you copy the shapefile components to Google Drive, you should download each folder that you put outputs in. Once you download these ZIP files you don't need to unzip as you can just upload them to Carto as a ZIP file. The name of folder that you download from Google Drive then upload to Colab should have the same name as the shapefile components that are within the folder. If you are not doing this with Colab make sure that your output folder is zipped before uploading it to Carto. 
 
-Once you log onto Carto go to your Dashboard and click on the blue button that says 'New Map', then click 'Create Empty Map'. Once you click that button you will have an empty map. The first map we will create will show the locations of the Worcester Environmental Justice CBGs that fulfill all criteria, and the Environmental Justice CBGs that fulfill only some of the criteria. First edit the title of this map by clicking the name of the map in the top left corner and call it 'Worcester EJ Map'. Next, we want to download the 'Worcester.shp' file. To do this click 'Add New Layer', and then upload the zip file called 'Worcester'.
+Once you log onto Carto go to your Dashboard and click on the blue button that says 'New Map', then click 'Create Empty Map'. Once you click that button you will have an empty map. The first map we will create will show the locations of the Worcester Environmental Justice CBGs that fulfill all criteria, and the Environmental Justice CBGs that fulfill only some of the criteria. First edit the title of this map by clicking the name of the map in the top left corner and call it 'Worcester EJ Map'. Next, we want to download the 'Worcester.shp' file. To do this click 'Add New Layer', and then upload the ZIP file called 'Worcester'.
 
 Click on the three dots next to the layer name and click 'Edit layer'. Next, click on the Style tab and change the Stroke size to 5. Next, change the colors and transparencies of the polygon and stroke to what is shown below.
 
@@ -492,7 +492,7 @@ If you want to check to make sure your map looks good feel free to look up at th
 
 Now we'll make another map. Go back to the dashboard and do the same thing as before. This time name the map 'Worcester Greenspace Map', and once again add the Worcester layer and edit the stroke and polygon colors and transparencies like for the Worcester EJ Map. 
 
-Once you download the Worcester data, download the Zipfiles that contain, ''Worcester_greenspace_NonEJ.shp', 'Worcester_EJ_some_greenspace.shp', 'Worcester_EJ_all_greenspace.shp'. After these Zipfiles are downloaded first click 'Edit layer' for the 'Worcester_greenspace_NonEJ' layer. Like with the other layers change the name of it to Worcester Green Space No EJ Criteria, and look at the image below to see what the colors and transparencies of the polygon should be.
+Once you download the Worcester data, download the ZIP files that contain, ''Worcester_greenspace_NonEJ.shp', 'Worcester_EJ_some_greenspace.shp', 'Worcester_EJ_all_greenspace.shp'. After these ZIP files are downloaded first click 'Edit layer' for the 'Worcester_greenspace_NonEJ' layer. Like with the other layers change the name of it to Worcester Green Space No EJ Criteria, and look at the image below to see what the colors and transparencies of the polygon should be.
 
 ![Kyle's cool map](images/Worcester_Greenspace_EJAll_Polygon.PNG)
 
