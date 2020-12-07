@@ -63,7 +63,7 @@ However, studies show that spaces disproportionately lie within communities that
 In addition to comparing green space distribution in Environmental Justice CBGs and non-Environmental Justice CBGs this tutorial will also show how to compare green space distribution in Environmental Justice CBGs that satisfy all three criteria, and Environmental Justice CBGs that satisfy only some criteria. Lastly, it is also important to note that these qualifications for Environmental Justice CBGs are only used for CBGs in Massachusetts.
 
 ### Data Needed for this Lab
-All the data needed is available in the data folder of this repo, but if you would like to see where it came from the links are attached.
+All the data needed is unfortunately not available on GitHub because it was too large to upload, but you can download it from the links attached in the description each set of data needed. You will also notice that 
 
 1. Massachusetts Towns(CENSUS2010TOWNS_POLY.shp): The data is available at this [link](https://docs.digital.mass.gov/dataset/massgis-data-datalayers-2010-us-census) and contains all the 351 towns of Massachusetts.
 
@@ -94,7 +94,7 @@ from shapely import wkt  # stands for "well known text," allows for the intercha
 ```
 
 
-Next you will want to organize the data. I recommend creating a folder called Worcester_EJ_Greenspace as I did, and then create a folder called 'input' folder within the Worcester_EJ_GreenSpace folder. In addition, create the following folders within the Worcester_EJ_GreenSpace folder, 'Worcester', 'Worcester_EJ_all', 'Worcester_EJ_some', 'Worcester_EJ_all_greenspace', 'Worcester_EJ_some_greenspace', and 'Worcester_greenspace_NonEJ'. I will explain in Part 3 why you need all of these folders. If you're using Colab, before inputting the data you need to write the following code to connect Colab to your Drive.
+Next you will want to organize the data. I recommend creating a folder called Worcester_EJ_Greenspace as I did, and then create a folder called 'input' folder within the Worcester_EJ_GreenSpace folder to input all the datasets you need to start this tutorial, which are the shapefile components of 'CENSUS2010TOWNS_POLY', 'EJ_POLY', and 'OPENSPACE_POLY'. In addition, create the following folders within the Worcester_EJ_GreenSpace folder, 'Worcester', 'Worcester_EJ_all', 'Worcester_EJ_some', 'Worcester_EJ_all_greenspace', 'Worcester_EJ_some_greenspace', and 'Worcester_greenspace_NonEJ'. I will explain in Part 3 why you need all of these folders. If you're using Colab, before inputting the data you need to write the following code to connect Colab to your Drive.
 
 ```Python
 from google.colab import drive
