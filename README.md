@@ -522,6 +522,8 @@ As mentioned this is data that was not provided for the tutorial, and this is ju
 Lastly, I just went to the Legend tab and typed in 'Tree Cover in Worcester' as the first and only legend item and that was it.
 
 ### Conclusion
+Now that you have the maps you can really compare the distribution of Green Space between EJ CBGs and non EJ CBGs of Worcester through visualization. As I mentioned near the beginning of this tutorial you can do this with other Massachusetts towns, you would just need to make sure that there are EJ CBGs or more than one CBG in the town you're looking at if you want to compare the amount of Green Space in EJ and Non-EJ CBGs. Even if the Massachusetts town you look at doesn't have one or both of those things you can still do this tutorial with another Massachusetts town to just simply show the town's Green Space distribution.
+
 I hope you enjoyed doing this tutorial and creating these new shapefiles to produce a neat interactive map that you can share with others. If you wish to learn more about GeoPandas library click on this [link](https://geopandas.org/). Lastly, if you have any questions or face any issues during this tutorial feel free to email me at kpecsok@clarku.edu.
 
 ### References
