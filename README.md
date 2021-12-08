@@ -2,7 +2,7 @@
 This tutorial was created by Kyle Pecsok as a final project for Professor Shadrock Robert's 'Computer Programming for GIS' course at Clark University. If you have any questions please feel free to email me at kpecsok@clarku.edu.
 
 ### Things needed for this tutorial
-- A Google Colab account, unless you have another coding software, know how to connect input data to the code, and place data created in the code to a new output folder.
+- A Google Colab account, unless you have another coding software and know how to connect input data to the code and place data created in the code to a new output folder.
 
 - A Carto account, however even if you don't have a Carto account you can still produce the necessary shapefiles you just won't be able to create the same maps that I did.
 
@@ -63,9 +63,9 @@ However, studies show that spaces disproportionately lie within communities that
 In addition to comparing green space distribution in Environmental Justice CBGs and non-Environmental Justice CBGs this tutorial will also show how to compare green space distribution in Environmental Justice CBGs that satisfy all three criteria, and Environmental Justice CBGs that satisfy only some criteria. Lastly, it is also important to note that these qualifications for Environmental Justice CBGs are only used for CBGs in Massachusetts.
 
 ### Data Needed for this Lab
-All the data needed is unfortunately not available on GitHub because it was too large to upload, but you can download it from the links attached in the description each set of data needed. If you have trouble downloading this data feel free to email me at kpecsok@clarku.edu and I would be happy to send you a ZIP file of the needed data.
+All the data needed is unfortunately not available on GitHub because it was too large to upload, but you can download it from the links attached in each dataset's description. If you have trouble downloading this data feel free to email me at kpecsok@clarku.edu and I would be happy to send you a ZIP file of the needed data.
 
-1. Massachusetts Towns(CENSUS2010TOWNS_POLY.shp): The data is available at this [link](https://docs.digital.mass.gov/dataset/massgis-data-datalayers-2010-us-census) and contains all the 351 towns of Massachusetts.
+1. Massachusetts Towns (CENSUS2010TOWNS_POLY.shp): The data is available at this [link](https://docs.digital.mass.gov/dataset/massgis-data-datalayers-2010-us-census) and contains all the 351 towns of Massachusetts.
 
 2. Environmental Justice CBG (EJ_POLY.shp): The data is available at this [link](https://docs.digital.mass.gov/dataset/massgis-data-2010-us-census-environmental-justice-populations) and contains all the Environmental Justice CBGs within Massachusetts. 
 
